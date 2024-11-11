@@ -1,6 +1,10 @@
 @import url('./src/componentes/paginacion/Contacto/contacto.css');
 @import url('./src/componentes/paginacion/Modal/crearModal.css');
 @import url('./src/componentes/paginacion/Home/home.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/Header/header.css');
+/*@import url('./src/componentes/Eventos/LogicaEventos/components/Loading/loading.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/Loginform/loginform.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/Modalprincipal/Modalprincipal.css');*/
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -97,4 +101,31 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+#event-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 150px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.create-event-btn {
+  max-width: 300px;
+  height: 50px;
+  font-size: 18px;
+  padding: 10px 20px;
+  background-color: var(--secundary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  justify-content: center;
+}
+
+.create-event-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }

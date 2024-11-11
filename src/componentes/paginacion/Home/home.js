@@ -1,9 +1,8 @@
 import { crearModal } from '../Modal/crearModal'
-
-import headerImage from '../../../../public/assets/imagenes/header.jpg'
-import event1Image from '../../../../public/assets/imagenes/header.jpg'
-import event2Image from '../../../../public/assets/imagenes/header.jpg'
-import event3Image from '../../../../public/assets/imagenes/header.jpg'
+import headerImage from '../../../../public/assets/imagenes/foto15.jpg'
+import event1Image from '../../../../public/assets/imagenes/concierto.jpg'
+import event2Image from '../../../../public/assets/imagenes/gastronomia.jpg'
+import event3Image from '../../../../public/assets/imagenes/arte.jpg'
 
 export function renderHome() {
   crearModal()
@@ -76,29 +75,6 @@ export function renderHome() {
           </div>
         </section>
       </main>
-
-      <footer class="home-footer">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Contacto</h3>
-            <p>Email: info@eventosespectaculares.com</p>
-            <p>Teléfono: +34 123 456 789</p>
-          </div>
-          <div class="footer-section">
-            <h3>Síguenos</h3>
-            <div class="social-links">
-              <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2023 Eventos Espectaculares. Todos los derechos reservados.</p>
-        </div>
-      </footer>
-    </div>
   `
 }
 

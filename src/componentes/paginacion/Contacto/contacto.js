@@ -1,92 +1,8 @@
-/*export function renderContacto() {
-  const app = document.getElementById('app')
-  app.innerHTML = `
-    <h1>Contacto</h1>
-    <p>Aquí puedes encontrar la información de contacto.</p>
-  `
-}
-import { crearModal } from './Modal/crearModal'
-import './contacto.css'
-crearModal()
-function createContactPage() {
-  const container = document.createElement('div')
-  container.className = 'contacto-container'
-
-  const infoSection = document.createElement('div')
-  infoSection.className = 'info-section'
-  infoSection.innerHTML = `
-    <h2>Información de Contacto</h2>
-    <div class="contact-details">
-      <p><i class="fas fa-phone"></i> +34 123 456 789</p>
-      <p><i class="fas fa-envelope"></i> info@ejemplo.com</p>
-      <p><i class="fas fa-map-marker-alt"></i> Calle Ejemplo, 123, 28001 Madrid</p>
-    </div>
-    <div class="social-media">
-      <h3>Síguenos</h3>
-      <div class="social-links">
-        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div>
-  `
-
-  const formSection = document.createElement('div')
-  formSection.className = 'form-section'
-  formSection.innerHTML = `
-    <h1>Contáctanos</h1>
-    <form id="contact-form">
-      <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" required></textarea>
-      </div>
-      <button type="submit">
-        <i class="fas fa-paper-plane"></i> Enviar Mensaje
-      </button>
-    </form>
-  `
-
-  container.appendChild(infoSection)
-  container.appendChild(formSection)
-
-  return container
-}
-
-function setupFormListener() {
-  const form = document.getElementById('contact-form')
-  form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    const formData = new FormData(form)
-    const data = Object.fromEntries(formData)
-    console.log('Formulario enviado:', data)
-    form.reset()
-  })
-}
-
-export function renderContacto() {
-  const app = document.getElementById('app')
-  app.innerHTML = ''
-  app.appendChild(createContactPage())
-  setupFormListener()
-}
-
-// Llamar a la función cuando se cargue la página
-document.addEventListener('DOMContentLoaded', renderContacto)*/
-
 import { crearModal } from '../Modal/crearModal'
-
-import mapImage from '../../../../public/assets/imagenes/header.jpg'
-import employee1 from '../../../../public/assets/imagenes/header.jpg'
-import employee2 from '../../../../public/assets/imagenes/header.jpg'
-import employee3 from '../../../../public/assets/imagenes/header.jpg'
+import mapImage from '../../../../public/assets/imagenes/mapa.jpg'
+import employee1 from '../../../../public/assets/imagenes/foto persona1.jpg'
+import employee2 from '../../../../public/assets/imagenes/foto persona2.jpg'
+import employee3 from '../../../../public/assets/imagenes/foto persona3.jpg'
 
 export function renderContacto() {
   crearModal()
@@ -113,7 +29,7 @@ export function renderContacto() {
             </div>
             <div class="contact-item">
               <i class="fas fa-map-marker-alt"></i>
-              <p>Calle Ejemplo, 123, 28001 Madrid</p>
+              <p>Calle Manuel de Falla, 123, 28001 Madrid</p>
             </div>
           </div>
         </section>
@@ -139,9 +55,9 @@ export function renderContacto() {
               <p>Gerente de Eventos</p>
             </div>
             <div class="team-member">
-              <img src="${employee3}" alt="Foto de Carlos Rodríguez" class="member-image">
-              <h3>Carlos Rodríguez</h3>
-              <p>Coordinador de Logística</p>
+              <img src="${employee3}" alt="Foto de Carla Rodríguez" class="member-image">
+              <h3>Carla Rodríguez</h3>
+              <p>Coordinadora de Logística</p>
             </div>
           </div>
         </section>
@@ -163,5 +79,4 @@ export function renderContacto() {
   `
 }
 
-// Llamar a la función cuando se cargue la página
 document.addEventListener('DOMContentLoaded', renderContacto)
