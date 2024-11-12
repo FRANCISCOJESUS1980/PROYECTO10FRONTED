@@ -1,10 +1,12 @@
 import { crearModal } from '../Modal/crearModal'
-import headerImage from '../../../../public/assets/imagenes/foto15.jpg'
+import headerImage from '../../../../public/assets/imagenes/header.jpg'
 import event1Image from '../../../../public/assets/imagenes/concierto.jpg'
 import event2Image from '../../../../public/assets/imagenes/gastronomia.jpg'
 import event3Image from '../../../../public/assets/imagenes/arte.jpg'
+import { Loading } from '../../Eventos/LogicaEventos/components/Loading/loading'
 
 export function renderHome() {
+  Loading()
   crearModal()
 
   const app = document.getElementById('app')

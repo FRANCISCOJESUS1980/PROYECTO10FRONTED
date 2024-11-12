@@ -1,4 +1,4 @@
-import handleCreateEvent from './createEvent'
+import handleCreateEvent from './createEvents'
 import { openModal } from '../Usuarios/Modal'
 
 export function openCreateEventModal() {

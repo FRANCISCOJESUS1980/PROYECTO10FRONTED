@@ -13,7 +13,7 @@
   cursor: pointer;
   user-select: none;
   background-color: var(--secundary-color);
-  color: white;
+  color: black;
   padding: 10px;
   border-radius: 50%;
   transition: background-color 0.3s ease;
@@ -43,8 +43,8 @@
   padding: 10px;
   margin: 15px 0px;
   font-size: 16px;
-  color: #ffffff;
-  background-color: var(--secundary-color);
+  color: black;
+  background-color: rgb(171, 210, 238);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -52,6 +52,7 @@
 
 .dropdown-menu button:hover {
   background-color: black;
+  color: white;
 }
 
 .dropdown-menu {

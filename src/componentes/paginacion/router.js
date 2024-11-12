@@ -9,6 +9,11 @@ export function router() {
   if (app) {
     app.innerHTML = ''
   }
+  const header = document.querySelector('header')
+  if (header) header.remove()
+
+  const eventosContainer = document.getElementById('event-container')
+  if (eventosContainer) eventosContainer.remove()
 
   switch (path) {
     case '/home':

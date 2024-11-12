@@ -1,7 +1,7 @@
-import { openModal, closeModal } from '../utils/Modal.js'
-//import { EventCard } from '../tarjetaEventos/EventCard.js'
+import { openModal, closeModal } from '../Usuarios/Modal.js'
+import { EventCard } from '../TarjetaEventos/EventCard.js'
 import Swal from 'sweetalert2'
-import { loadEvents } from '../../main.js'
+import { loadEvents } from '../../../../paginacion/PaginaEventos/eventos.js'
 
 async function handleCreateEvent(e) {
   e.preventDefault()

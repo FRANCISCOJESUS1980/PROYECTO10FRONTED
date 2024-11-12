@@ -3,11 +3,13 @@ import mapImage from '../../../../public/assets/imagenes/mapa.jpg'
 import employee1 from '../../../../public/assets/imagenes/foto persona1.jpg'
 import employee2 from '../../../../public/assets/imagenes/foto persona2.jpg'
 import employee3 from '../../../../public/assets/imagenes/foto persona3.jpg'
+import { Loading } from '../../Eventos/LogicaEventos/components/Loading/loading'
 
 export function renderContacto() {
   crearModal()
 
   const app = document.getElementById('app')
+
   app.innerHTML = `
     <div class="contacto-container">
       <header class="contacto-header">
@@ -77,6 +79,7 @@ export function renderContacto() {
       </footer>
     </div>
   `
+  Loading()
 }
 
 document.addEventListener('DOMContentLoaded', renderContacto)
