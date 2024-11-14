@@ -54,7 +54,8 @@
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 40px;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -83,13 +84,7 @@
 #modal-container button:hover {
   background-color: rgba(124, 122, 122, 0.8);
 }
-/*#loginModal,
-#registerModal {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-}*/
+
 #loginModal,
 #registerModal {
   margin-right: 80px;

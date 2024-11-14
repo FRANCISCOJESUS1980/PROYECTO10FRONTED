@@ -46,12 +46,13 @@ h1 {
 }
 
 #app {
-  /*max-width: 1280px;*/
+  /* max-width: 1280px;*/
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .logo {
@@ -111,6 +112,8 @@ button:focus-visible {
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   height: 150px;
   width: 100%;
   margin-top: 50px;
@@ -127,10 +130,13 @@ button:focus-visible {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  justify-content: center;
-  margin-top: 0;
+
+  margin-top: 120px;
 }
 
 .create-event-btn:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+.event-card {
+  margin-top: 200px;
 }

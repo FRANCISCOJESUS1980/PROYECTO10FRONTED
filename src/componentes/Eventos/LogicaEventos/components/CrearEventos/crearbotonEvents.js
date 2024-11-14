@@ -11,7 +11,7 @@ export function addCreateEventButton() {
   button.className = 'create-event-btn'
   button.addEventListener('click', openCreateEventModal)
 
-  let eventContainer = document.getElementById('event-container')
+  let eventContainer = document.getElementById('app')
 
   if (!eventContainer) {
     eventContainer = document.createElement('div')
@@ -22,7 +22,7 @@ export function addCreateEventButton() {
     eventContainer.style.marginTop = '80px'
     eventContainer.style.minHeight = '100px'
 
-    const header = document.querySelector('header')
+    const header = document.querySelector('#app')
     header.insertAdjacentElement('afterend', eventContainer)
   }
 
