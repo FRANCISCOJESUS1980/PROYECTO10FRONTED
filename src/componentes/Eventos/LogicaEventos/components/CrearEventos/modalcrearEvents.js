@@ -1,8 +1,11 @@
 import handleCreateEvent from './createEvents'
-import { openModal } from '../Usuarios/Modal'
 
 export function openCreateEventModal() {
+  const modalOverlay = document.createElement('div')
+  modalOverlay.className = 'modal-overlay'
+
   const modalContent = document.createElement('div')
+  modalContent.className = 'modal-content'
   modalContent.innerHTML = `
     <h2>Crear Evento</h2>
     <form id="create-event-form">
@@ -20,9 +23,21 @@ export function openCreateEventModal() {
     </form>
   `
 
+  modalOverlay.appendChild(modalContent)
+  document.body.appendChild(modalOverlay)
+
+  function closeModal() {
+    document.body.removeChild(modalOverlay)
+  }
+
   modalContent
     .querySelector('#create-event-form')
-    .addEventListener('submit', handleCreateEvent)
+    .addEventListener('submit', async (e) => {
+      const success = await handleCreateEvent(e)
+      if (success) {
+        closeModal()
+      }
+    })
 
-  openModal(modalContent, 'eventModal')
+  //openModal(modalContent, 'eventModal')
 }

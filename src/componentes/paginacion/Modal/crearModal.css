@@ -3,7 +3,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background-color: black;
+  background-color: #3498db;
   border: none;
   color: white;
   padding: 10px;
@@ -19,7 +19,7 @@
   border-radius: 5px 0 0 5px;
 }
 #toggle-button:hover {
-  background-color: rgb(130, 126, 126);
+  background-color: black;
 }
 
 #toggle-button.hidden {
@@ -87,8 +87,8 @@
 
 #loginModal,
 #registerModal {
-  margin-right: 80px;
-  width: 400px;
+  width: 600px;
+  margin-right: 100px;
 }
 input {
   caret-color: #1da1f2;

@@ -11,6 +11,7 @@ const LoginForm = (onLogin) => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
+
     const email = form.querySelector('#email').value
     const password = form.querySelector('#password').value
 

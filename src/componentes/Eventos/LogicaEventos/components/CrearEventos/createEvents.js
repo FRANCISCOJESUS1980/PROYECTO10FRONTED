@@ -1,5 +1,3 @@
-import { openModal, closeModal } from '../Usuarios/Modal.js'
-import { EventCard } from '../TarjetaEventos/EventCard.js'
 import Swal from 'sweetalert2'
 import { loadEvents } from '../../../../paginacion/PaginaEventos/eventos.js'
 
@@ -19,7 +17,7 @@ async function handleCreateEvent(e) {
       text: 'El título debe tener entre 3 y 16 caracteres.',
       confirmButtonText: 'Corregir'
     })
-    return
+    return false
   }
 
   if (location.length > 14) {
@@ -29,7 +27,7 @@ async function handleCreateEvent(e) {
       text: 'La ubicación no debe superar los 14 caracteres.',
       confirmButtonText: 'Corregir'
     })
-    return
+    return false
   }
 
   if (description.length > 20) {
@@ -39,7 +37,7 @@ async function handleCreateEvent(e) {
       text: 'La descripción no debe superar los 20 caracteres.',
       confirmButtonText: 'Corregir'
     })
-    return
+    return false
   }
 
   const formData = new FormData()
@@ -75,7 +73,7 @@ async function handleCreateEvent(e) {
       } else {
         throw new Error('El servidor devolvió un error inesperado.')
       }
-      return
+      return false
     }
 
     Swal.fire({
@@ -85,8 +83,8 @@ async function handleCreateEvent(e) {
       confirmButtonText: 'Aceptar'
     })
 
-    closeModal('eventModal')
     loadEvents()
+    return true
   } catch (error) {
     console.error('Error al crear el evento:', error)
     Swal.fire({
@@ -95,6 +93,7 @@ async function handleCreateEvent(e) {
       text: error.message,
       confirmButtonText: 'Intentar de nuevo'
     })
+    return false
   } finally {
     submitButton.disabled = false
     submitButton.textContent = 'Crear Evento'

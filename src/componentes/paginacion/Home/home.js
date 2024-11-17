@@ -1,5 +1,5 @@
 import { crearModal } from '../Modal/crearModal'
-import headerImage from '../../../../public/assets/imagenes/header.jpg'
+import headerImage from '../../../../public/assets/imagenes/foto15.jpg'
 import event1Image from '../../../../public/assets/imagenes/concierto.jpg'
 import event2Image from '../../../../public/assets/imagenes/gastronomia.jpg'
 import event3Image from '../../../../public/assets/imagenes/arte.jpg'
@@ -21,6 +21,10 @@ export function renderHome() {
       </header>
 
       <main class="home-main">
+       <section class="explicacion-pagina">
+          <h2>Como Crear Eventos</h2>
+          <p>Para crear eventos, tienes que registrarte o loguearte y una vez hecho pulsar el boton de crear eventos y rellenar los campos obligatorios, para confirmar asistencia o cancelar asistencia solo tienes que pulsar en el evento pulsar el boton o bien para confirmar asistencia o bien para cancelar, si has creado el eventos tambien podras modificarlo o eliminarlo</p>
+        </section>
         <section class="about-section">
           <h2>Sobre Nosotros</h2>
           <p>Somos líderes en la organización de eventos únicos y memorables. Con años de experiencia, nos dedicamos a crear experiencias que superan las expectativas de nuestros clientes.</p>

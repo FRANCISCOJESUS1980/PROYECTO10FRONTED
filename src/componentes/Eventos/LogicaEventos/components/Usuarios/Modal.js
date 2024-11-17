@@ -1,4 +1,4 @@
-export const Modal = (content, modalId = '') => {
+/*export const Modal = (content, modalId = '') => {
   const modal = document.createElement('div')
   modal.id = modalId
   modal.style.position = 'fixed'
@@ -43,4 +43,4 @@ export const closeModal = (modalId) => {
   if (modal) {
     modal.remove()
   }
-}
+}*/

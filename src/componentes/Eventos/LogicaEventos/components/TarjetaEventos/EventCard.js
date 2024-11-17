@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import { openModal } from '../Usuarios/Modal.js'
+//import { openModal } from '../Usuarios/Modal.js'
 import handleUpdateEvent from './updateEvent.js'
 
 const EventCard = (
@@ -137,7 +137,7 @@ const EventCard = (
               handleUpdateEvent(eventId)
             })
 
-          openModal(form, 'handleUpdateEvent')
+          //openModal(form, 'handleUpdateEvent')
         })
         buttonContainer.appendChild(updateButton)
       } else if (userIsAttending) {

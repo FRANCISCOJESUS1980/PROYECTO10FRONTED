@@ -11,7 +11,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   flex-wrap: wrap;
-  margin-top: 150px;
+  margin-top: 120px;
 }
 .event-card:hover {
   transform: scale3d(3);
@@ -38,8 +38,11 @@
 }
 
 .event-buttons button {
-  background-color: var(--secundary-color);
+  background-color: #3498db;
   justify-content: center;
+}
+.event-buttons button:hover {
+  background-color: rgba(124, 122, 122, 0.8);
 }
 
 .event-image {

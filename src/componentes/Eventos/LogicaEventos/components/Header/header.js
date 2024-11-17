@@ -1,14 +1,4 @@
-import RegisterForm from '../Usuarios/RegisterForm.js'
-import LoginForm from '../Loginform/loginform.js'
-import { Modal } from '../Usuarios/Modal.js'
-
-const clearModals = () => {
-  const existingModal = document.querySelector('.modal')
-  if (existingModal) {
-    existingModal.remove()
-  }
-}
-const Header = (handleRegister, handleLogin) => {
+const Header = () => {
   const headerElement = document.createElement('header')
   headerElement.className = 'header-container'
 
@@ -16,24 +6,8 @@ const Header = (handleRegister, handleLogin) => {
     <div class="header-left">
       <h1 class="header-title">EVENTOS</h1>
     </div>
-    <img src="/assets/imagenes/header.jpg" alt="Logo" class="header-image" />
-    <div class="button-container">
-      <button id="registerBtn" class="header-button">Registrarse</button>
-      <button id="loginBtn" class="header-button">Iniciar Sesión</button>
-    </div>
+    <img src="/assets/imagenes/foto15.jpg" alt="Logo" class="header-image" />
   `
-
-  headerElement.querySelector('#registerBtn').onclick = () => {
-    clearModals()
-    const modal = Modal(RegisterForm(handleRegister), 'registerModal')
-    document.body.appendChild(modal)
-  }
-
-  headerElement.querySelector('#loginBtn').onclick = () => {
-    clearModals()
-    const modal = Modal(LoginForm(handleLogin), 'loginModal')
-    document.body.appendChild(modal)
-  }
 
   return headerElement
 }

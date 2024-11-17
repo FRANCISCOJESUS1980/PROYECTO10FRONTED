@@ -33,17 +33,26 @@ export function createUserMenu() {
 
     if (result.isConfirmed) {
       try {
-        const userId = 'id_del_usuario'
-        const response = await fetch(`/delete/${userId}`, {
-          method: 'DELETE',
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`
+        const userId = localStorage.getItem('userId')
+        if (!userId) {
+          Swal.fire('Error', 'No se encontró el ID del usuario.', 'error')
+          return
+        }
+
+        const response = await fetch(
+          `http://localhost:3000/api/auth/delete/${userId}`,
+          {
+            method: 'DELETE',
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
           }
-        })
+        )
 
         if (response.ok) {
           Swal.fire('¡Eliminado!', 'Tu cuenta ha sido eliminada.', 'success')
           localStorage.removeItem('token')
+          localStorage.removeItem('userId')
           window.location.reload()
         } else {
           const errorData = await response.json()
