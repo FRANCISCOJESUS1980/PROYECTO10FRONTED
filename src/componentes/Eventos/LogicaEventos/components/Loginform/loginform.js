@@ -17,6 +17,7 @@ const LoginForm = (onLogin) => {
 
     try {
       const user = await api('/auth/login', 'POST', { email, password })
+      localStorage.setItem('token', user.token)
       onLogin(user.token)
       form.reset()
 

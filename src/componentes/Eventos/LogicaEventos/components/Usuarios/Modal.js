@@ -1,20 +1,21 @@
-/*export const Modal = (content, modalId = '') => {
+export const Modal = (content, modalId = '') => {
   const modal = document.createElement('div')
   modal.id = modalId
   modal.style.position = 'fixed'
   modal.style.top = '20%'
-  modal.style.left = '20%'
-  modal.style.width = '43%'
-  modal.style.height = '24%'
-  modal.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'
+  modal.style.left = '35%'
+  /* modal.style.width = '32%'
+  modal.style.height = '44%'*/
+  modal.style.backgroundColor = 'black'
   modal.style.display = 'flex'
   modal.style.alignItems = 'center'
   modal.style.justifyContent = 'center'
   modal.style.zIndex = '1001'
 
   const modalContent = document.createElement('div')
-  modalContent.style.backgroundColor = 'var(--primary-color)'
-  modalContent.style.padding = '20px'
+  modalContent.className = 'modal-modificar'
+  modalContent.style.backgroundColor = 'white'
+  modalContent.style.padding = '5px'
   modalContent.style.borderRadius = '5px'
 
   modalContent.appendChild(content)
@@ -43,4 +44,4 @@ export const closeModal = (modalId) => {
   if (modal) {
     modal.remove()
   }
-}*/
+}

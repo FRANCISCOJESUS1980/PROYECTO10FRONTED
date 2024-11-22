@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
 import { loadEvents } from '../../../../paginacion/PaginaEventos/eventos.js'
-//import { closeModal } from '../Usuarios/Modal.js'
+import { closeModal } from '../Usuarios/Modal.js'
 
 async function handleUpdateEvent(eventId) {
   const title = document.getElementById('title').value
@@ -9,11 +9,11 @@ async function handleUpdateEvent(eventId) {
   const description = document.getElementById('description').value
   const image = document.getElementById('image').files[0]
 
-  if (title.length < 3 || title.length > 16) {
+  if (title.length < 3 || title.length > 20) {
     Swal.fire({
       icon: 'warning',
       title: 'Título inválido',
-      text: 'El título debe tener entre 3 y 16 caracteres.',
+      text: 'El título debe tener entre 3 y 20 caracteres.',
       confirmButtonText: 'Corregir'
     })
     return

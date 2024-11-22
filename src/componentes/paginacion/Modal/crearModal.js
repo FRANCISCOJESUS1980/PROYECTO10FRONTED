@@ -72,9 +72,10 @@ export function crearModal() {
     }
   })
 
-  function updateUIAfterLogin(newToken) {
+  /* function updateUIAfterLogin(newToken) {
     document.body.classList.add('logged-in')
     const protectedSection = document.querySelector('.auth-required')
+    isAuthenticated()
     if (protectedSection) {
       protectedSection.style.display = 'block'
     }
@@ -90,6 +91,21 @@ export function crearModal() {
 
     loadEvents()
 
+    window.isAuthenticated = true
+  }*/
+  function updateUIAfterLogin(newToken) {
+    document.body.classList.add('logged-in')
+    window.token = newToken
+    localStorage.setItem('token', newToken)
+
+    const loginButton = document.querySelector(
+      '#modal-container button[textContent="Login"]'
+    )
+    if (loginButton) loginButton.style.display = 'none'
+
+    createUserMenu()
+    addCreateEventButton()
+    loadEvents()
     window.isAuthenticated = true
   }
 
@@ -186,7 +202,7 @@ export function crearModal() {
     })
   }
 
-  function handleLogout() {
+  /* function handleLogout() {
     localStorage.removeItem('token')
     window.token = null
     window.isAuthenticated = false
@@ -198,6 +214,33 @@ export function crearModal() {
     if (createEventButton) createEventButton.remove()
 
     loginButton.style.display = 'block'
+
+    loadEvents()
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Sesión cerrada',
+      text: 'Has cerrado sesión exitosamente',
+      timer: 2000,
+      showConfirmButton: false
+    })
+  }*/
+  function handleLogout() {
+    localStorage.removeItem('token')
+    window.token = null
+    window.isAuthenticated = false
+
+    document.body.classList.remove('logged-in')
+
+    const userMenu = document.getElementById('user-menu')
+    if (userMenu) userMenu.remove()
+    const createEventButton = document.querySelector('.create-event-button')
+    if (createEventButton) createEventButton.remove()
+
+    const loginButton = document.querySelector(
+      '#modal-container button[textContent="Login"]'
+    )
+    if (loginButton) loginButton.style.display = 'block'
 
     loadEvents()
 

@@ -7,6 +7,7 @@ export function openCreateEventModal() {
   const modalContent = document.createElement('div')
   modalContent.className = 'modal-content'
   modalContent.innerHTML = `
+   
     <h2>Crear Evento</h2>
     <form id="create-event-form">
       <label for="title">Título:</label>
@@ -30,6 +31,16 @@ export function openCreateEventModal() {
     document.body.removeChild(modalOverlay)
   }
 
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      closeModal()
+    }
+  })
+
+  /* // Cerrar modal con el botón de cierre
+  const closeButton = modalContent.querySelector('.close-button')
+  closeButton.addEventListener('click', closeModal)
+*/
   modalContent
     .querySelector('#create-event-form')
     .addEventListener('submit', async (e) => {
@@ -38,6 +49,4 @@ export function openCreateEventModal() {
         closeModal()
       }
     })
-
-  //openModal(modalContent, 'eventModal')
 }
