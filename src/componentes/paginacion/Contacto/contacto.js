@@ -8,6 +8,12 @@ import logoImage from '/assets/imagenes/foto15.jpg'
 export function renderContacto() {
   const app = document.getElementById('app')
 
+  const fontAwesomeLink = document.createElement('link')
+  fontAwesomeLink.rel = 'stylesheet'
+  fontAwesomeLink.href =
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+  document.head.appendChild(fontAwesomeLink)
+
   app.innerHTML = `
     <div class="contacto-page">
       <header class="contacto-header">
@@ -115,10 +121,10 @@ export function renderContacto() {
         <div class="contacto-social-media">
           <h3>Síguenos</h3>
           <div class="contacto-social-links">
-            <a href="#" class="contacto-social-link"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="contacto-social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="contacto-social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="contacto-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
         <p>&copy; 2023 Tu Empresa de Eventos. Todos los derechos reservados.</p>
