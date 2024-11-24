@@ -142,7 +142,7 @@ export function renderContacto() {
     const email = document.getElementById('contacto-email').value
     const message = document.getElementById('contacto-message').value
 
-    console.log('Formulario enviado:', { name, email, message })
+    //si quieres Santi aqui iria la logica para enviar el mensaje
 
     Swal.fire({
       icon: 'success',

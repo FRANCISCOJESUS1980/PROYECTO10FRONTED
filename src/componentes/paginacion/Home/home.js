@@ -1,5 +1,5 @@
 import { crearModal } from '../Modal/crearModal'
-import headerImage from '../../../../public/assets/imagenes/foto15.jpg'
+import headerImage from '../../../../public/assets/imagenes/portada.avif'
 import event1Image from '../../../../public/assets/imagenes/concierto.jpg'
 import event2Image from '../../../../public/assets/imagenes/gastronomia.jpg'
 import event3Image from '../../../../public/assets/imagenes/arte.jpg'
@@ -37,7 +37,7 @@ export function renderHome() {
               <img src="${event1Image}" alt="Concierto de Rock" class="event-image">
               <div class="event-details">
                 <h3>Concierto de Rock</h3>
-                <p>Fecha: 15 de Julio, 2023</p>
+                <p>Fecha: 15 de Julio, 2025</p>
                 <p>Lugar: Estadio Central</p>
                 <a href="#" class="event-link">Más información</a>
               </div>
@@ -46,7 +46,7 @@ export function renderHome() {
               <img src="${event2Image}" alt="Festival de Gastronomía" class="event-image">
               <div class="event-details">
                 <h3>Festival de Gastronomía</h3>
-                <p>Fecha: 5-7 de Agosto, 2023</p>
+                <p>Fecha: 5-7 de Agosto, 2025</p>
                 <p>Lugar: Parque de la Ciudad</p>
                 <a href="#" class="event-link">Más información</a>
               </div>
@@ -55,7 +55,7 @@ export function renderHome() {
               <img src="${event3Image}" alt="Exposición de Arte" class="event-image">
               <div class="event-details">
                 <h3>Exposición de Arte</h3>
-                <p>Fecha: 20 de Septiembre, 2023</p>
+                <p>Fecha: 20 de Septiembre, 2025</p>
                 <p>Lugar: Galería Nacional</p>
                 <a href="#" class="event-link">Más información</a>
               </div>

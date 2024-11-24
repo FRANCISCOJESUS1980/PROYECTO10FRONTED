@@ -1,7 +1,7 @@
 .loading {
   color: white;
   font-size: 24px;
-  background-color: var(--secundary-color);
+  background-color: #333;
   position: fixed;
   top: 0;
   left: 0;

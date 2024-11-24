@@ -1,6 +1,6 @@
 .menu-container {
   position: fixed;
-  top: 180px;
+  top: 190px;
   right: 10px;
   display: flex;
   flex-direction: column;
@@ -28,7 +28,7 @@
   position: absolute;
   top: 60px;
   right: 50px;
-  background-color: #3498db;
+  background-color: #f0f2f5;
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
@@ -45,7 +45,7 @@
   margin: 10px 0px;
   font-size: 15px;
   color: black;
-  background-color: rgb(171, 210, 238);
+  background-color: #3498db;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;

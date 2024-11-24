@@ -37,10 +37,6 @@ export function openCreateEventModal() {
     }
   })
 
-  /* // Cerrar modal con el botón de cierre
-  const closeButton = modalContent.querySelector('.close-button')
-  closeButton.addEventListener('click', closeModal)
-*/
   modalContent
     .querySelector('#create-event-form')
     .addEventListener('submit', async (e) => {

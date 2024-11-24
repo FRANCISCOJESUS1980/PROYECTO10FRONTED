@@ -77,10 +77,6 @@
   transition: background-color 0.3s ease;
 }
 
-#modal-container button:first-child {
-  margin-top: 20px;
-}
-
 #modal-container button:hover {
   background-color: rgba(124, 122, 122, 0.8);
 }
