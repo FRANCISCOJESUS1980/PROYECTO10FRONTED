@@ -35,6 +35,7 @@ const LoginForm = (onLogin) => {
       })
     } catch (error) {
       console.error('Error en el inicio de sesión:', error)
+      form.remove()
 
       const errorMessage = error.message || 'Error en el inicio de sesión'
 

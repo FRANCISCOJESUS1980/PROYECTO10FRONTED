@@ -72,27 +72,6 @@ export function crearModal() {
     }
   })
 
-  /* function updateUIAfterLogin(newToken) {
-    document.body.classList.add('logged-in')
-    const protectedSection = document.querySelector('.auth-required')
-    isAuthenticated()
-    if (protectedSection) {
-      protectedSection.style.display = 'block'
-    }
-
-    window.token = newToken
-    localStorage.setItem('token', newToken)
-
-    loginButton.style.display = 'none'
-
-    addCreateEventButton()
-
-    createUserMenu()
-
-    loadEvents()
-
-    window.isAuthenticated = true
-  }*/
   function updateUIAfterLogin(newToken) {
     document.body.classList.add('logged-in')
     window.token = newToken
@@ -110,6 +89,16 @@ export function crearModal() {
   }
 
   function openLoginModal() {
+    if (isAuthenticated()) {
+      Swal.fire({
+        title: 'Ya has iniciado sesión',
+        text: 'Cierra sesion en el boton pequeño de arriba a la derecha en la pagina de proximos eventos para poder volver a iniciar',
+        icon: 'info',
+        confirmButtonText: 'Aceptar'
+      })
+      closeModal()
+      return
+    }
     if (document.getElementById('loginModal')) return
 
     closeModal()
@@ -202,30 +191,7 @@ export function crearModal() {
     })
   }
 
-  /* function handleLogout() {
-    localStorage.removeItem('token')
-    window.token = null
-    window.isAuthenticated = false
-    document.body.classList.remove('logged-in')
-
-    const userMenu = document.getElementById('user-menu')
-    if (userMenu) userMenu.remove()
-    const createEventButton = document.querySelector('.create-event-button')
-    if (createEventButton) createEventButton.remove()
-
-    loginButton.style.display = 'block'
-
-    loadEvents()
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Sesión cerrada',
-      text: 'Has cerrado sesión exitosamente',
-      timer: 2000,
-      showConfirmButton: false
-    })
-  }*/
-  function handleLogout() {
+  /*function handleLogout() {
     localStorage.removeItem('token')
     window.token = null
     window.isAuthenticated = false
@@ -251,5 +217,5 @@ export function crearModal() {
       timer: 2000,
       showConfirmButton: false
     })
-  }
+  }*/
 }
