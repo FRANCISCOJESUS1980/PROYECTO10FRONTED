@@ -90,3 +90,8 @@
     width: 260px;
   }
 }
+@media (max-height: 600px) {
+  .modal-content {
+    height: 400px;
+  }
+}

@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
-import { openModal } from '../Usuarios/Modal.js'
-import handleUpdateEvent from './updateEvent.js'
+import { openModal } from '../../Usuarios/Modal.js'
+import handleUpdateEvent from '../updateEventos/updateEvent.js'
 //import { openCreateEventModal } from '../CrearEventos/modalcrearEvents.js'
 
 const EventCard = (

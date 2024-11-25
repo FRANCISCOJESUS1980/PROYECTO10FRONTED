@@ -133,7 +133,6 @@ export function renderContacto() {
   `
 
   const contactForm = document.querySelector('form#contacto-form')
-  console.log(contactForm)
 
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault()

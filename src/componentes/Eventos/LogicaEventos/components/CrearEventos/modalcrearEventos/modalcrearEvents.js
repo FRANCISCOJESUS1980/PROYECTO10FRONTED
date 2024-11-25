@@ -1,4 +1,4 @@
-import handleCreateEvent from './createEvents'
+import handleCreateEvent from '../createEvents'
 
 export function openCreateEventModal() {
   const modalOverlay = document.createElement('div')

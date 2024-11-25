@@ -1,6 +1,6 @@
 import Swal from 'sweetalert2'
-import { loadEvents } from '../../../../paginacion/PaginaEventos/eventos.js'
-import { closeModal } from '../Usuarios/Modal.js'
+import { loadEvents } from '../../../../../paginacion/PaginaEventos/eventos.js'
+import { closeModal } from '../../Usuarios/Modal.js'
 
 async function handleUpdateEvent(eventId) {
   const title = document.getElementById('title').value

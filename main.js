@@ -6,7 +6,7 @@ import {
   isAuthenticated
 } from './src/componentes/paginacion/PaginaEventos/eventos.js'
 import { createUserMenu } from './src/componentes/Eventos/LogicaEventos/components/Usuarios/UserMenu.js'
-import { addCreateEventButton } from './src/componentes/Eventos/LogicaEventos/components/CrearEventos/crearbotonEvents.js'
+import { addCreateEventButton } from './src/componentes/Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
 
 document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('token')

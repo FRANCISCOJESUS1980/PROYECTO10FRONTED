@@ -1,4 +1,4 @@
-import { openCreateEventModal } from './modalcrearEvents'
+import { openCreateEventModal } from '../modalcrearEventos/modalcrearEvents'
 
 export function addCreateEventButton() {
   let existingButton = document.querySelector('.create-event-btn')

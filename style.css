@@ -5,11 +5,11 @@
 @import url('./src/componentes/Eventos/LogicaEventos/components/Loading/loading.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/Usuarios/UserMenu.css');
 @import url('./src/componentes/paginacion/PaginaEventos/eventos.css');
-@import url('./src/componentes/Eventos/LogicaEventos/components/CrearEventos/crearbotonEvents.css');
-@import url('./src/componentes/Eventos/LogicaEventos/components/TarjetaEventos/updateEvent.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/TarjetaEventos/updateEventos/updateEvent.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/Loginform/loginform.css');
-@import url('./src/componentes/Eventos/LogicaEventos/components/CrearEventos/modalcrearEvents.css');
-@import url('./src/componentes/Eventos/LogicaEventos/components/TarjetaEventos/EventCard.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/CrearEventos/modalcrearEventos/modalcrearEvents.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/TarjetaEventos/EventCard/EventCard.css');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -28,42 +28,6 @@
 #app {
   justify-content: center;
 }
-
-/*body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}*/
 
 button {
   border-radius: 8px;

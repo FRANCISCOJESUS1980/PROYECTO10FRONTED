@@ -1,9 +1,9 @@
 import { navigateTo } from '../router'
 import LoginForm from '../../Eventos/LogicaEventos/components/Loginform/loginform'
 import RegisterForm from '../../Eventos/LogicaEventos/components/Usuarios/RegisterForm'
-import { EventCard } from '../../Eventos/LogicaEventos/components/TarjetaEventos/EventCard'
+import { EventCard } from '../../Eventos/LogicaEventos/components/TarjetaEventos/EventCard/EventCard.js'
 import { loadEvents, isAuthenticated } from '../PaginaEventos/eventos.js'
-import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEvents.js'
+import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
 import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu.js'
 import Swal from 'sweetalert2'
 
