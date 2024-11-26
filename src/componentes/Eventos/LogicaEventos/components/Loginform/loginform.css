@@ -34,12 +34,13 @@ label,
 input,
 button {
   display: block;
-  width: 97%;
+  width: 98%;
   padding: 0;
   margin: 5px;
   border: none;
   outline: none;
   box-sizing: border-box;
+  background-color: #3498db;
 }
 
 label {
