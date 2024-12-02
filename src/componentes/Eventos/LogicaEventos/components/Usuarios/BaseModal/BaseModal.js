@@ -1,4 +1,4 @@
-export const Modal = (content, modalId = '') => {
+/*const BaseModal = (content, modalId, onClose) => {
   const modal = document.createElement('div')
   modal.id = modalId
   modal.style.position = 'fixed'
@@ -12,32 +12,34 @@ export const Modal = (content, modalId = '') => {
   modal.style.justifyContent = 'center'
   modal.style.zIndex = '1001'
 
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal(modalId)
-    }
-  })
-
   const modalContent = document.createElement('div')
-  modalContent.className = 'modal-modificar'
+  modalContent.className = 'modal-content'
   modalContent.style.backgroundColor = 'white'
-  modalContent.style.padding = '5px'
-  modalContent.style.borderRadius = '5px'
+  modalContent.style.padding = '20px'
+  modalContent.style.borderRadius = '8px'
+  modalContent.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.2)'
 
   modalContent.appendChild(content)
   modal.appendChild(modalContent)
 
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      onClose?.() // Llama a onClose si está definido
+      modal.remove()
+    }
+  })
+
   return modal
 }
 
-export const openModal = (content, modalId) => {
-  const modal = Modal(content, modalId)
+export const openBaseModal = (content, modalId = '', onClose) => {
+  const modal = BaseModal(content, modalId, onClose)
   document.body.appendChild(modal)
 }
 
-export const closeModal = (modalId) => {
+export const closeBaseModal = (modalId) => {
   const modal = document.getElementById(modalId)
   if (modal) {
     modal.remove()
   }
-}
+}*/

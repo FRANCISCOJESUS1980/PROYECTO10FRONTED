@@ -10,11 +10,12 @@ form {
   position: fixed;
   left: 30%;
   top: 30%;
-  width: 420px;
+  width: 520px;
   height: min-content;
   text-align: center;
   background-color: #3498db;
-  z-index: 10000000;
+  z-index: 100;
+  border-radius: 10px;
 }
 
 #registerModal > a:hover,
@@ -40,7 +41,6 @@ button {
   border: none;
   outline: none;
   box-sizing: border-box;
-  background-color: #3498db;
 }
 
 label {
@@ -96,5 +96,10 @@ h2 {
   #loginModal,
   #registerModal > a {
     margin: 5px;
+  }
+  #email,
+  #password {
+    margin-right: 5px;
+    width: 96%;
   }
 }

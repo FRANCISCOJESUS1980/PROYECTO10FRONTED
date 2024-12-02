@@ -7,7 +7,15 @@ const LoginForm = (onLogin) => {
         <h2>Iniciar Sesión</h2>
         <input type="email" id="email" placeholder="Correo electrónico" required />
         <input type="password" id="password" placeholder="Contraseña" required />
-        <button type="submit">Iniciar Sesión</button>`
+        <button type="submit">Iniciar Sesión</button>
+        <button type="button" id="closeButton">Cerrar</button>`
+
+  const closeModal = () => {
+    const modal = document.getElementById('loginModal')
+    if (modal) {
+      modal.remove()
+    }
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -21,10 +29,7 @@ const LoginForm = (onLogin) => {
       onLogin(user.token)
       form.reset()
 
-      const modal = document.getElementById('loginModal')
-      if (modal) {
-        modal.remove()
-      }
+      closeModal()
 
       Swal.fire({
         icon: 'success',
@@ -35,9 +40,13 @@ const LoginForm = (onLogin) => {
       })
     } catch (error) {
       console.error('Error en el inicio de sesión:', error)
-      form.remove()
 
-      const errorMessage = error.message || 'Error en el inicio de sesión'
+      const errorMessage =
+        error.status === 401
+          ? 'Correo o contraseña incorrectos. Por favor, intenta de nuevo.'
+          : error.message || 'Error inesperado al iniciar sesión.'
+
+      //closeModal()
 
       Swal.fire({
         icon: 'error',
@@ -46,6 +55,8 @@ const LoginForm = (onLogin) => {
       })
     }
   })
+
+  form.querySelector('#closeButton').addEventListener('click', closeModal)
 
   return form
 }

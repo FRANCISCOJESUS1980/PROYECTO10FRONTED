@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -134,6 +138,7 @@ h2 {
   color: #3498db;
   text-decoration: none;
   font-weight: bold;
+  scroll-behavior: smooth;
 }
 
 .testimonial-card p {

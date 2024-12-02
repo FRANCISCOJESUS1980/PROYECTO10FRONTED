@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import api from '../../services/api.js'
 import { loadEvents } from '../../../../../paginacion/PaginaEventos/eventos.js'
 import { closeModal } from '../../Usuarios/Modal.js'
 
@@ -47,27 +48,8 @@ async function handleUpdateEvent(eventId) {
   if (image) formData.append('image', image)
 
   try {
-    const response = await fetch(
-      `http://localhost:3000/api/events/${eventId}`,
-      {
-        method: 'PUT',
-        body: formData,
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`
-        }
-      }
-    )
-
-    if (!response.ok) {
-      const errorMessage = await response.json()
-      Swal.fire({
-        icon: 'error',
-        title: 'Error en el servidor',
-        text: errorMessage.message,
-        confirmButtonText: 'OK'
-      })
-      return
-    }
+    const token = localStorage.getItem('token')
+    const response = await api(`/events/${eventId}`, 'PUT', formData, token)
 
     Swal.fire({
       icon: 'success',

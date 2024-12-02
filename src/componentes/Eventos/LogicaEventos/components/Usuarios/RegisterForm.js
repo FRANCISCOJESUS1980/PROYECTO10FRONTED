@@ -9,7 +9,15 @@ const RegisterForm = (onRegister) => {
     <input type="email" id="email" placeholder="Correo electrónico" required />
     <input type="password" id="password" placeholder="Contraseña" required />
     <button type="submit">Registrarse</button>
+    <button type="button" id="closeButton">Cerrar</button>
   `
+
+  const closeModal = () => {
+    const modal = document.getElementById('registerModal')
+    if (modal) {
+      modal.remove()
+    }
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -35,10 +43,7 @@ const RegisterForm = (onRegister) => {
       onRegister(response.token)
       form.reset()
 
-      const modal = document.getElementById('registerModal')
-      if (modal) {
-        modal.remove()
-      }
+      closeModal()
 
       Swal.fire({
         title: 'Registro exitoso!',
@@ -59,6 +64,8 @@ const RegisterForm = (onRegister) => {
         errorMessage = error.message
       }
 
+      // closeModal()
+
       Swal.fire({
         title: 'Error!',
         text: errorMessage,
@@ -67,6 +74,8 @@ const RegisterForm = (onRegister) => {
       })
     }
   })
+
+  form.querySelector('#closeButton').addEventListener('click', closeModal)
 
   return form
 }
