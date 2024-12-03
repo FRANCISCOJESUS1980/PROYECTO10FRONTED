@@ -1,21 +1,15 @@
+import { openBaseModal, closeBaseModal } from '../Usuarios/BaseModal/BaseModal'
 import api from '../services/api'
 import Swal from 'sweetalert2'
 
 const LoginForm = (onLogin) => {
   const form = document.createElement('form')
   form.innerHTML = `
-        <h2>Iniciar Sesión</h2>
-        <input type="email" id="email" placeholder="Correo electrónico" required />
-        <input type="password" id="password" placeholder="Contraseña" required />
-        <button type="submit">Iniciar Sesión</button>
-        <button type="button" id="closeButton">Cerrar</button>`
-
-  const closeModal = () => {
-    const modal = document.getElementById('loginModal')
-    if (modal) {
-      modal.remove()
-    }
-  }
+    <h2>Iniciar Sesión</h2>
+    <input type="email" id="email" placeholder="Correo electrónico" required />
+    <input type="password" id="password" placeholder="Contraseña" required />
+    <button type="submit">Iniciar Sesión</button>
+  `
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -29,7 +23,7 @@ const LoginForm = (onLogin) => {
       onLogin(user.token)
       form.reset()
 
-      closeModal()
+      closeBaseModal('loginModal')
 
       Swal.fire({
         icon: 'success',
@@ -40,13 +34,10 @@ const LoginForm = (onLogin) => {
       })
     } catch (error) {
       console.error('Error en el inicio de sesión:', error)
-
       const errorMessage =
         error.status === 401
           ? 'Correo o contraseña incorrectos. Por favor, intenta de nuevo.'
           : error.message || 'Error inesperado al iniciar sesión.'
-
-      //closeModal()
 
       Swal.fire({
         icon: 'error',
@@ -56,9 +47,12 @@ const LoginForm = (onLogin) => {
     }
   })
 
-  form.querySelector('#closeButton').addEventListener('click', closeModal)
-
   return form
+}
+
+export const openLoginModal = (onLogin) => {
+  const loginForm = LoginForm(onLogin)
+  openBaseModal(loginForm, 'loginModal')
 }
 
 export default LoginForm

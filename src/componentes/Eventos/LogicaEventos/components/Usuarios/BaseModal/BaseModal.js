@@ -1,4 +1,4 @@
-/*const BaseModal = (content, modalId, onClose) => {
+const BaseModal = (content, modalId, onClose) => {
   const modal = document.createElement('div')
   modal.id = modalId
   modal.style.position = 'fixed'
@@ -24,7 +24,7 @@
 
   modal.addEventListener('click', (e) => {
     if (e.target === modal) {
-      onClose?.() // Llama a onClose si está definido
+      onClose?.()
       modal.remove()
     }
   })
@@ -42,4 +42,4 @@ export const closeBaseModal = (modalId) => {
   if (modal) {
     modal.remove()
   }
-}*/
+}
