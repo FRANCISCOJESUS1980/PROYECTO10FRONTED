@@ -57,7 +57,7 @@ body {
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background-color: #3498db;
+  background-color: var(--background-color1);
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -135,7 +135,7 @@ h2 {
 .event-link {
   display: inline-block;
   margin-top: 1rem;
-  color: #3498db;
+  color: var(--background-color1);
   text-decoration: none;
   font-weight: bold;
   scroll-behavior: smooth;

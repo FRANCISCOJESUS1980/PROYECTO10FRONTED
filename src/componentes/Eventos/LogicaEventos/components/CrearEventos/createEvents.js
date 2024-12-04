@@ -1,110 +1,7 @@
-/*import Swal from 'sweetalert2'
-import { loadEvents } from '../../../../paginacion/PaginaEventos/eventos.js'
-
-async function handleCreateEvent(e) {
-  e.preventDefault()
-
-  const title = document.getElementById('title').value
-  const date = document.getElementById('date').value
-  const location = document.getElementById('location').value
-  const description = document.getElementById('description').value
-  const image = document.getElementById('image').files[0]
-
-  if (title.length < 3 || title.length > 16) {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Título inválido',
-      text: 'El título debe tener entre 3 y 16 caracteres.',
-      confirmButtonText: 'Corregir'
-    })
-    return false
-  }
-
-  if (location.length > 14) {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Ubicación inválida',
-      text: 'La ubicación no debe superar los 14 caracteres.',
-      confirmButtonText: 'Corregir'
-    })
-    return false
-  }
-
-  if (description.length > 20) {
-    Swal.fire({
-      icon: 'warning',
-      title: 'Descripción inválida',
-      text: 'La descripción no debe superar los 20 caracteres.',
-      confirmButtonText: 'Corregir'
-    })
-    return false
-  }
-
-  const formData = new FormData()
-  formData.append('title', title)
-  formData.append('date', date)
-  formData.append('location', location)
-  formData.append('description', description)
-  formData.append('image', image)
-
-  const submitButton = document.querySelector('button[type="submit"]')
-  submitButton.disabled = true
-  submitButton.textContent = 'Creando...'
-
-  try {
-    const response = await fetch('http://localhost:3000/api/events', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    })
-
-    if (!response.ok) {
-      const contentType = response.headers.get('content-type')
-      if (contentType && contentType.includes('application/json')) {
-        const errorMessage = await response.json()
-        Swal.fire({
-          icon: 'error',
-          title: 'Error en el servidor',
-          text: errorMessage.message,
-          confirmButtonText: 'OK'
-        })
-      } else {
-        throw new Error('El servidor devolvió un error inesperado.')
-      }
-      return false
-    }
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Evento creado',
-      text: 'El evento se ha creado exitosamente.',
-      confirmButtonText: 'Aceptar'
-    })
-
-    loadEvents()
-    return true
-  } catch (error) {
-    console.error('Error al crear el evento:', error)
-    Swal.fire({
-      icon: 'error',
-      title: 'Error al crear el evento',
-      text: error.message,
-      confirmButtonText: 'Intentar de nuevo'
-    })
-    return false
-  } finally {
-    submitButton.disabled = false
-    submitButton.textContent = 'Crear Evento'
-  }
-}
-
-export default handleCreateEvent*/
-
-import Swal from 'sweetalert2'
+import showAlert from '../AlertComponent/AlerComponet.js'
 import api from '../services/api.js'
 import { loadEvents } from '../../../../paginacion/PaginaEventos/eventos.js'
+import { Loading } from '../Loading/loading.js'
 
 async function handleCreateEvent(e) {
   e.preventDefault()
@@ -116,7 +13,7 @@ async function handleCreateEvent(e) {
   const image = document.getElementById('image').files[0]
 
   if (title.length < 3 || title.length > 16) {
-    Swal.fire({
+    await showAlert({
       icon: 'warning',
       title: 'Título inválido',
       text: 'El título debe tener entre 3 y 16 caracteres.',
@@ -126,7 +23,7 @@ async function handleCreateEvent(e) {
   }
 
   if (location.length > 14) {
-    Swal.fire({
+    await showAlert({
       icon: 'warning',
       title: 'Ubicación inválida',
       text: 'La ubicación no debe superar los 14 caracteres.',
@@ -136,7 +33,7 @@ async function handleCreateEvent(e) {
   }
 
   if (description.length > 20) {
-    Swal.fire({
+    await showAlert({
       icon: 'warning',
       title: 'Descripción inválida',
       text: 'La descripción no debe superar los 20 caracteres.',
@@ -155,11 +52,12 @@ async function handleCreateEvent(e) {
   const submitButton = document.querySelector('button[type="submit"]')
   submitButton.disabled = true
   submitButton.textContent = 'Creando...'
+  Loading()
 
   try {
     await api('/events', 'POST', formData, localStorage.getItem('token'))
 
-    Swal.fire({
+    await showAlert({
       icon: 'success',
       title: 'Evento creado',
       text: 'El evento se ha creado exitosamente.',
@@ -171,22 +69,17 @@ async function handleCreateEvent(e) {
   } catch (error) {
     console.error('Error al crear el evento:', error)
 
-    if (error.response && error.response.status === 400) {
-      const message = error.response.data.message || 'Error al crear el evento.'
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: message,
-        confirmButtonText: 'Intentar de nuevo'
-      })
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error al crear el evento',
-        text: 'ya existe un evento con el mismo titulo, fecha o ubicacion. Por favor, inténtalo más tarde.',
-        confirmButtonText: 'Intentar de nuevo'
-      })
-    }
+    const message =
+      error.response && error.response.status === 400
+        ? error.response.data.message || 'Error al crear el evento.'
+        : 'La fecha no puede ser anterior ni igual a hoy. Inténtalo de nuevo.'
+
+    await showAlert({
+      icon: 'error',
+      title: 'Error',
+      text: message,
+      confirmButtonText: 'Intentar de nuevo'
+    })
 
     return false
   } finally {

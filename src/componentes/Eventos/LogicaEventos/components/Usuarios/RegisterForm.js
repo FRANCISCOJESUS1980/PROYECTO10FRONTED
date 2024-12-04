@@ -1,6 +1,6 @@
 import { openBaseModal, closeBaseModal } from './BaseModal/BaseModal'
 import api from '../services/api'
-import Swal from 'sweetalert2'
+import showAlert from '../AlertComponent/AlerComponet'
 
 const RegisterForm = (onRegister) => {
   const form = document.createElement('form')
@@ -34,7 +34,7 @@ const RegisterForm = (onRegister) => {
 
       closeBaseModal('registerModal')
 
-      Swal.fire({
+      showAlert({
         title: 'Registro exitoso!',
         text: 'Bienvenido a nuestra plataforma.',
         icon: 'success',
@@ -42,11 +42,18 @@ const RegisterForm = (onRegister) => {
       })
     } catch (error) {
       console.error('Error en el registro:', error)
-      const errorMessage = error.message.includes('Usuario ya registrado')
-        ? 'El usuario ya existe. Por favor, intenta con otro correo o nombre de usuario.'
-        : 'Ocurrió un error.'
 
-      Swal.fire({
+      const errorMessage = error.message.includes('password')
+        ? 'La longitud de la contraseña debe tener al menos 8 caracteres.'
+        : error.message.includes('username')
+        ? 'El nombre de usuario debe tener al menos 3 caracteres.'
+        : error.message.includes('email')
+        ? 'El email debe ser válido.'
+        : error.message.includes('Usuario ya registrado')
+        ? 'El usuario ya existe. Por favor, intenta con otro correo o nombre de usuario.'
+        : 'Ocurrió un error inesperado.'
+
+      showAlert({
         title: 'Error!',
         text: errorMessage,
         icon: 'error',

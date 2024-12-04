@@ -24,6 +24,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --background-color1: #3498db;
+  --background-color2: black;
 }
 #app {
   justify-content: center;
@@ -49,13 +51,13 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #3498db;
+    background-color: var(--background-color1);
   }
 
   a:hover {
     color: #747bff;
   }
   button {
-    background-color: #3498db;
+    background-color: var(--background-color1);
   }
 }

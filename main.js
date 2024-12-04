@@ -11,7 +11,7 @@ import { addCreateEventButton } from './src/componentes/Eventos/LogicaEventos/co
 document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('token')
 
-  if (token && !isTokenExpired(token)) {
+  if (isAuthenticated()) {
     initializeAuthenticatedState(token)
   } else {
     localStorage.removeItem('token')
@@ -27,12 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   crearModal()
 })
-
-function isTokenExpired(token) {
-  const payload = JSON.parse(atob(token.split('.')[1]))
-  const now = Date.now() / 1000
-  return payload.exp < now
-}
 
 function initializeAuthenticatedState(token) {
   document.body.classList.add('logged-in')

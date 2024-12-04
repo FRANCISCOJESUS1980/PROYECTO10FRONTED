@@ -127,7 +127,7 @@
 }
 
 .contacto-submit-btn {
-  background-color: #3498db;
+  background-color: var(--background-color1);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -230,7 +230,7 @@
 
 .contacto-social-link {
   font-size: 1.5rem;
-  color: #3498db;
+  color: var(--background-color1);
   transition: color 0.3s ease;
   text-decoration: none;
 }

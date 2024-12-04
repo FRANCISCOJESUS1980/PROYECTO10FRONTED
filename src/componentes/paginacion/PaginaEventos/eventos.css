@@ -17,7 +17,7 @@
 
 .header-title {
   font-size: 4.8rem;
-  color: #3498db;
+  color: var(--background-color1);
   font-weight: bold;
   margin: 0 20px;
   z-index: 1;

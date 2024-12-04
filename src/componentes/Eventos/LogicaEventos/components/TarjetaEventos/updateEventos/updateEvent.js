@@ -1,7 +1,7 @@
-import Swal from 'sweetalert2'
 import api from '../../services/api.js'
 import { loadEvents } from '../../../../../paginacion/PaginaEventos/eventos.js'
 import { closeModal } from '../../Usuarios/Modal.js'
+import showAlert from '../../AlertComponent/AlerComponet.js'
 
 async function handleUpdateEvent(eventId) {
   const title = document.getElementById('title').value
@@ -11,7 +11,7 @@ async function handleUpdateEvent(eventId) {
   const image = document.getElementById('image').files[0]
 
   if (title.length < 3 || title.length > 20) {
-    Swal.fire({
+    showAlert({
       icon: 'warning',
       title: 'Título inválido',
       text: 'El título debe tener entre 3 y 20 caracteres.',
@@ -21,7 +21,7 @@ async function handleUpdateEvent(eventId) {
   }
 
   if (location.length > 14) {
-    Swal.fire({
+    showAlert({
       icon: 'warning',
       title: 'Ubicación inválida',
       text: 'La ubicación no debe superar los 14 caracteres.',
@@ -31,7 +31,7 @@ async function handleUpdateEvent(eventId) {
   }
 
   if (description.length > 20) {
-    Swal.fire({
+    showAlert({
       icon: 'warning',
       title: 'Descripción inválida',
       text: 'La descripción no debe superar los 20 caracteres.',
@@ -51,7 +51,7 @@ async function handleUpdateEvent(eventId) {
     const token = localStorage.getItem('token')
     const response = await api(`/events/${eventId}`, 'PUT', formData, token)
 
-    Swal.fire({
+    showAlert({
       icon: 'success',
       title: 'Evento actualizado',
       text: 'El evento se ha actualizado exitosamente.',
@@ -62,7 +62,7 @@ async function handleUpdateEvent(eventId) {
     closeModal('handleUpdateEvent')
   } catch (error) {
     console.error('Error al actualizar el evento:', error)
-    Swal.fire({
+    showAlert({
       icon: 'error',
       title: 'Error al actualizar el evento',
       text: error.message,

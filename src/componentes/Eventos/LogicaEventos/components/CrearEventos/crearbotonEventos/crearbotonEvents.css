@@ -1,5 +1,5 @@
 .create-event-btn {
-  background-color: #3498db;
+  background-color: var(--background-color1);
   border: none;
   color: white;
   padding: 15px 32px;
@@ -16,5 +16,5 @@
 }
 
 .create-event-btn:hover {
-  background-color: black;
+  background-color: var(--background-color2);
 }

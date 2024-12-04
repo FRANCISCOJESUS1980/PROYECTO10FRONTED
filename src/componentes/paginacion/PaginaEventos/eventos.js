@@ -1,7 +1,7 @@
 import api from '../../Eventos/LogicaEventos/components/services/api.js'
 import Header from '../../Eventos/LogicaEventos/components/Header/header.js'
 import { Loading } from '../../Eventos/LogicaEventos/components/Loading/loading.js'
-import Swal from 'sweetalert2'
+import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet.js'
 import { EventCard } from '../../Eventos/LogicaEventos/components/TarjetaEventos/EventCard/EventCard.js'
 import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
 import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu.js'
@@ -23,7 +23,7 @@ const hideLoading = () => {
 }
 
 const showError = (message) => {
-  Swal.fire({
+  showAlert({
     icon: 'error',
     title: 'Error',
     text: message
@@ -31,7 +31,17 @@ const showError = (message) => {
 }
 
 export const isAuthenticated = () => {
-  return window.isAuthenticated
+  const token = localStorage.getItem('token')
+  if (!token) return false
+
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]))
+    const now = Date.now() / 1000
+    return payload.exp >= now
+  } catch (error) {
+    console.error('Error decoding token:', error)
+    return false
+  }
 }
 
 export const loadEvents = async () => {
@@ -72,7 +82,7 @@ export const loadEvents = async () => {
       localStorage.removeItem('token')
       window.token = null
       window.isAuthenticated = false
-      Swal.fire({
+      showAlert({
         icon: 'warning',
         title: 'Sesión expirada',
         text: 'Tu sesión ha expirado. Por favor, inicia sesión de nuevo.'
@@ -88,7 +98,7 @@ export const loadEvents = async () => {
 const confirmAttendance = async (eventId) => {
   showLoading()
   if (!isAuthenticated()) {
-    Swal.fire({
+    showAlert({
       icon: 'info',
       title: 'Iniciar sesión',
       text: 'Debes iniciar sesión para confirmar asistencia.'
@@ -98,7 +108,7 @@ const confirmAttendance = async (eventId) => {
   }
   try {
     await api(`/events/${eventId}/attend`, 'POST', null, window.token)
-    Swal.fire({
+    showAlert({
       icon: 'success',
       title: 'Asistencia Confirmada',
       text: 'Has confirmado asistencia con éxito'
@@ -107,7 +117,7 @@ const confirmAttendance = async (eventId) => {
   } catch (error) {
     hideLoading()
     console.error('Error al confirmar asistencia:', error)
-    Swal.fire({
+    showAlert({
       icon: 'error',
       title: 'Error al confirmar asistencia',
       text: 'Error al confirmar asistencia. Intenta de nuevo.'
@@ -118,7 +128,7 @@ const confirmAttendance = async (eventId) => {
 const leaveEvent = async (eventId) => {
   showLoading()
   if (!isAuthenticated()) {
-    Swal.fire({
+    showAlert({
       icon: 'info',
       title: 'Iniciar sesión',
       text: 'Debes iniciar sesión para salir del evento.'
@@ -128,7 +138,7 @@ const leaveEvent = async (eventId) => {
   }
   try {
     await api(`/events/${eventId}/leave`, 'POST', null, window.token)
-    Swal.fire({
+    showAlert({
       icon: 'success',
       title: 'Salir del evento',
       text: 'Has salido del evento con éxito'
@@ -137,7 +147,7 @@ const leaveEvent = async (eventId) => {
   } catch (error) {
     hideLoading()
     console.error('Error al salir del evento:', error)
-    Swal.fire({
+    showAlert({
       icon: 'error',
       title: 'Error al salir del evento',
       text: 'Error al salir del evento. Intenta de nuevo.'
@@ -148,7 +158,7 @@ const leaveEvent = async (eventId) => {
 const deleteEvent = async (eventId) => {
   showLoading()
   if (!isAuthenticated()) {
-    Swal.fire({
+    showAlert({
       icon: 'info',
       title: 'Iniciar sesión',
       text: 'Debes iniciar sesión para eliminar el evento.'
@@ -158,7 +168,7 @@ const deleteEvent = async (eventId) => {
   }
   try {
     await api(`/events/${eventId}`, 'DELETE', null, window.token)
-    Swal.fire({
+    showAlert({
       icon: 'success',
       title: 'Evento Eliminado',
       text: 'El evento ha sido eliminado con éxito'
@@ -167,7 +177,7 @@ const deleteEvent = async (eventId) => {
   } catch (error) {
     hideLoading()
     console.error('Error al eliminar evento:', error)
-    Swal.fire({
+    showAlert({
       icon: 'error',
       title: 'Error al eliminar evento',
       text: 'Error al eliminar el evento. Intenta de nuevo.'

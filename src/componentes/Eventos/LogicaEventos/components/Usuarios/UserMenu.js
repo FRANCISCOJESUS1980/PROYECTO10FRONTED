@@ -1,5 +1,5 @@
-import Swal from 'sweetalert2'
 import api from '../services/api'
+import showAlert from '../AlertComponent/AlerComponet'
 
 export function createUserMenu() {
   const appDiv = document.getElementById('app')
@@ -21,7 +21,7 @@ export function createUserMenu() {
   const deleteUserBtn = document.createElement('button')
   deleteUserBtn.innerText = 'Eliminar usuario'
   deleteUserBtn.onclick = async () => {
-    const result = await Swal.fire({
+    const result = await showAlert({
       title: '¿Estás seguro?',
       text: 'Esta acción eliminará tu cuenta de usuario',
       icon: 'warning',
@@ -36,7 +36,12 @@ export function createUserMenu() {
       try {
         const userId = localStorage.getItem('userId')
         if (!userId) {
-          Swal.fire('Error', 'No se encontró el ID del usuario.', 'error')
+          showAlert({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se encontró el ID del usuario.',
+            confirmButtonText: 'Aceptar'
+          })
           return
         }
 
@@ -47,17 +52,25 @@ export function createUserMenu() {
           localStorage.getItem('token')
         )
 
-        Swal.fire('¡Eliminado!', 'Tu cuenta ha sido eliminada.', 'success')
+        showAlert({
+          icon: 'success',
+          title: '¡Eliminado!',
+          text: 'Tu cuenta ha sido eliminada.',
+          confirmButtonText: 'Aceptar'
+        })
+
         localStorage.removeItem('token')
         localStorage.removeItem('userId')
         window.location.reload()
       } catch (error) {
         console.error('Error al eliminar usuario:', error)
-        Swal.fire(
-          'Error',
-          error.message || 'Ocurrió un error al intentar eliminar el usuario',
-          'error'
-        )
+        showAlert({
+          icon: 'error',
+          title: 'Error',
+          text:
+            error.message || 'Ocurrió un error al intentar eliminar el usuario',
+          confirmButtonText: 'Aceptar'
+        })
       }
     }
   }
@@ -65,7 +78,7 @@ export function createUserMenu() {
   const logoutBtn = document.createElement('button')
   logoutBtn.innerText = 'Cerrar sesión'
   logoutBtn.onclick = () => {
-    Swal.fire({
+    showAlert({
       title: '¿Cerrar sesión?',
       text: '¿Estás seguro de que deseas cerrar sesión?',
       icon: 'question',
@@ -77,11 +90,12 @@ export function createUserMenu() {
     }).then((result) => {
       if (result.isConfirmed) {
         localStorage.removeItem('token')
-        Swal.fire(
-          'Sesión cerrada',
-          'Has cerrado sesión correctamente',
-          'success'
-        )
+        showAlert({
+          icon: 'success',
+          title: 'Sesión cerrada',
+          text: 'Has cerrado sesión correctamente',
+          confirmButtonText: 'Aceptar'
+        })
         window.location.reload()
       }
     })

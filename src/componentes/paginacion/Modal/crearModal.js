@@ -1,11 +1,10 @@
 import { navigateTo } from '../router'
 import LoginForm from '../../Eventos/LogicaEventos/components/Loginform/loginform'
 import RegisterForm from '../../Eventos/LogicaEventos/components/Usuarios/RegisterForm'
-import { EventCard } from '../../Eventos/LogicaEventos/components/TarjetaEventos/EventCard/EventCard.js'
 import { loadEvents, isAuthenticated } from '../PaginaEventos/eventos.js'
 import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
 import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu.js'
-import Swal from 'sweetalert2'
+import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet.js'
 
 export function crearModal() {
   const toggleButton = document.createElement('button')
@@ -90,7 +89,7 @@ export function crearModal() {
 
   function openLoginModal() {
     if (isAuthenticated()) {
-      Swal.fire({
+      showAlert({
         title: 'Ya has iniciado sesión',
         text: 'Cierra sesion en el boton pequeño de arriba a la derecha en la pagina de proximos eventos para poder volver a iniciar',
         icon: 'info',
@@ -110,7 +109,7 @@ export function crearModal() {
     const onLogin = (newToken) => {
       loginModal.remove()
       updateUIAfterLogin(newToken)
-      Swal.fire({
+      showAlert({
         icon: 'success',
         title: 'Inicio de sesión exitoso',
         text: 'Bienvenido de nuevo',
@@ -156,7 +155,7 @@ export function crearModal() {
     const onRegister = (newToken) => {
       registerModal.remove()
       updateUIAfterLogin(newToken)
-      Swal.fire({
+      showAlert({
         title: 'Registro exitoso',
         text: 'Bienvenido a nuestra plataforma',
         icon: 'success',
@@ -190,32 +189,4 @@ export function crearModal() {
       }
     })
   }
-
-  /*function handleLogout() {
-    localStorage.removeItem('token')
-    window.token = null
-    window.isAuthenticated = false
-
-    document.body.classList.remove('logged-in')
-
-    const userMenu = document.getElementById('user-menu')
-    if (userMenu) userMenu.remove()
-    const createEventButton = document.querySelector('.create-event-button')
-    if (createEventButton) createEventButton.remove()
-
-    const loginButton = document.querySelector(
-      '#modal-container button[textContent="Login"]'
-    )
-    if (loginButton) loginButton.style.display = 'block'
-
-    loadEvents()
-
-    Swal.fire({
-      icon: 'success',
-      title: 'Sesión cerrada',
-      text: 'Has cerrado sesión exitosamente',
-      timer: 2000,
-      showConfirmButton: false
-    })
-  }*/
 }

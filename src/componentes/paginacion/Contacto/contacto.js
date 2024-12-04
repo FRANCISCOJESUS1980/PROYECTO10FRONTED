@@ -1,10 +1,10 @@
-import Swal from 'sweetalert2'
 import mapImage from '/assets/imagenes/mapa.jpg'
 import employee1 from '/assets/imagenes/foto persona1.jpg'
 import employee2 from '/assets/imagenes/foto persona2.jpg'
 import employee3 from '/assets/imagenes/foto persona3.jpg'
 import employee4 from '/assets/imagenes/foto persona4.webp'
 import logoImage from '/assets/imagenes/foto15.jpg'
+import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet'
 
 export function renderContacto() {
   const app = document.getElementById('app')
@@ -109,10 +109,10 @@ export function renderContacto() {
               <h3>María García</h3>
               <p>Gerente de Eventos</p>
             </div>
-                <div class="contacto-team-member">
-              <img src="${employee4}" alt="Foto de frederic Kanoute" class="contacto-member-image">
+            <div class="contacto-team-member">
+              <img src="${employee4}" alt="Foto de Frederic Kanoute" class="contacto-member-image">
               <h3>Frederic Kanoute</h3>
-              <p>Tesoreria y Contactos</p>
+              <p>Tesorería y Contactos</p>
             </div>
             <div class="contacto-team-member">
               <img src="${employee3}" alt="Foto de Carla Rodríguez" class="contacto-member-image">
@@ -147,9 +147,9 @@ export function renderContacto() {
     const email = document.getElementById('contacto-email').value
     const message = document.getElementById('contacto-message').value
 
-    //si quieres Santi aqui iria la logica para enviar el mensaje
+    // Si quieres, aquí iría la lógica para enviar el mensaje
 
-    Swal.fire({
+    showAlert({
       icon: 'success',
       title: '¡Mensaje Enviado!',
       text: 'Gracias por tu mensaje. Te contactaremos pronto.',

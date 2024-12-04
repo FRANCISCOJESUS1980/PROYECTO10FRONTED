@@ -37,7 +37,7 @@
 }
 
 .event-buttons button {
-  background-color: #3498db;
+  background-color: var(--background-color1);
   justify-content: center;
 }
 .event-buttons button:hover {
@@ -68,7 +68,7 @@
 }
 .event-attendees {
   justify-content: center;
-  color: #3498db;
+  color: var(--background-color1);
 }
 @media (max-width: 450px) {
   .create-event-btn {

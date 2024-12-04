@@ -12,7 +12,7 @@
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  background-color: #3498db;
+  background-color: var(--background-color1);
   color: white;
   padding: 6px;
   border-radius: 10%;
@@ -45,7 +45,7 @@
   margin: 10px 0px;
   font-size: 15px;
   color: black;
-  background-color: #3498db;
+  background-color: var(--background-color1);
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;

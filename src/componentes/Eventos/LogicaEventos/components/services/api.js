@@ -35,30 +35,6 @@ const api = async (endpoint, method = 'GET', body = null, token = null) => {
 
     if (!response.ok) {
       const errorData = await response.json()
-
-      if (errorData.message && errorData.message.includes('password')) {
-        throw new Error(
-          'La longitud de la contraseña debe tener al menos 8 caracteres.'
-        )
-      }
-
-      if (response.status === 401) {
-        localStorage.removeItem('token')
-        throw new Error(
-          'el email o la contraseña son incorrectos, vuelve a intenarlo.'
-        )
-      }
-
-      if (errorData.message && errorData.message.includes('username')) {
-        throw new Error(
-          'El nombre de usuario debe tener al menos 3 caracteres.'
-        )
-      }
-
-      if (errorData.message && errorData.message.includes('email')) {
-        throw new Error('El email debe ser válido.')
-      }
-
       throw new Error(errorData.message || response.statusText)
     }
 

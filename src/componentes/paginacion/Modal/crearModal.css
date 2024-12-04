@@ -3,7 +3,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-50%);
-  background-color: #3498db;
+  background-color: var(--background-color1);
   border: none;
   color: white;
   padding: 10px;
@@ -19,7 +19,7 @@
   border-radius: 5px 0 0 5px;
 }
 #toggle-button:hover {
-  background-color: black;
+  background-color: var(--background-color2);
 }
 
 #toggle-button.hidden {
@@ -65,7 +65,7 @@
 }
 
 #modal-container button {
-  background: #3498db;
+  background: var(--background-color1);
   border: none;
   color: white;
   font-size: 22px;
