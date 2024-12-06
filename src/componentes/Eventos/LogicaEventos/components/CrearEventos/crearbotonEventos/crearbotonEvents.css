@@ -1,7 +1,7 @@
 .create-event-btn {
   background-color: var(--background-color1);
   border: none;
-  color: white;
+  color: var(--primary-color);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;

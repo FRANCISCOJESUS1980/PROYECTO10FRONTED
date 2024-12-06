@@ -13,14 +13,14 @@
   cursor: pointer;
   user-select: none;
   background-color: var(--background-color1);
-  color: white;
+  color: var(--primary-color);
   padding: 6px;
   border-radius: 10%;
   transition: background-color 0.3s ease;
 }
 
 .menu-icon:hover {
-  background-color: black;
+  background-color: var(--background-color2);
 }
 
 .dropdown-menu {
@@ -28,7 +28,7 @@
   position: absolute;
   top: 60px;
   right: 50px;
-  background-color: #f0f2f5;
+  background-color: var(--background-color4);
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
@@ -44,7 +44,7 @@
   padding: 5px;
   margin: 10px 0px;
   font-size: 15px;
-  color: black;
+  color: var(--sexto-color);
   background-color: var(--background-color1);
   border-radius: 5px;
   cursor: pointer;
@@ -54,8 +54,8 @@
 }
 
 .dropdown-menu button:hover {
-  background-color: black;
-  color: white;
+  background-color: var(--background-color2);
+  color: var(--primary-color);
 }
 
 .dropdown-menu {

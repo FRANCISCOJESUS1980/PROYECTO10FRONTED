@@ -3,13 +3,13 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #f0f2f5;
-  color: #333;
+  background-color: var(--background-color4);
+  color: var(--secundary-color);
 }
 
 .contacto-header {
-  background-color: #2c3e50;
-  color: white;
+  background-color: var(--background-color5);
+  color: var(--primary-color);
   padding: 2rem;
   border-radius: 8px;
   margin-bottom: 2rem;
@@ -46,7 +46,7 @@
 }
 
 .contacto-header-nav a {
-  color: white;
+  color: var(--primary-color);
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -67,14 +67,14 @@
 .contacto-form-section,
 .contacto-map-section,
 .contacto-faq-section {
-  background-color: white;
+  background-color: var(--background-color3);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
 }
 
 .contacto-main h2 {
-  color: #2c3e50;
+  color: var(--tercer-color);
   margin-bottom: 1rem;
 }
 
@@ -92,7 +92,7 @@
 
 .contacto-item i {
   font-size: 1.5rem;
-  color: #2c3e50;
+  color: var(--tercer-color);
 }
 
 .contacto-form-group {
@@ -102,7 +102,7 @@
 .contacto-form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #2c3e50;
+  color: var(--tercer-color);
 }
 
 .contacto-form-group input,
@@ -128,7 +128,7 @@
 
 .contacto-submit-btn {
   background-color: var(--background-color1);
-  color: white;
+  color: var(--primary-color);
   border: none;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
@@ -138,7 +138,7 @@
 }
 
 .contacto-submit-btn:hover {
-  background-color: #2c3e50;
+  background-color: var(--background-color5);
 }
 
 .contacto-map-container {
@@ -161,7 +161,7 @@
 }
 
 .contacto-faq-section details {
-  background-color: #f8f9fa;
+  background-color: var(--background-color6);
   border-radius: 4px;
   padding: 1rem;
 }
@@ -177,7 +177,7 @@
 
 .contacto-team-section {
   grid-column: 1 / -1;
-  background-color: white;
+  background-color: var(--background-color3);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
@@ -204,12 +204,12 @@
 
 .contacto-team-member h3 {
   margin: 0;
-  color: #2c3e50;
+  color: var(--tercer-color);
 }
 
 .contacto-team-member p {
   margin: 0;
-  color: #7f8c8d;
+  color: var(--cuarto-color);
 }
 
 .contacto-footer {
@@ -236,7 +236,7 @@
 }
 
 .contacto-social-link:hover {
-  color: #2980b9;
+  color: var(--quinto-color);
 }
 
 .contacto-social-link i {
@@ -245,7 +245,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0f2f5;
+  background-color: var(--background-color4);
   border-radius: 50%;
 }
 

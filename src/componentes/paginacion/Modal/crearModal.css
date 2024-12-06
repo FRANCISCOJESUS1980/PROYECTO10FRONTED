@@ -5,7 +5,7 @@
   transform: translateY(-50%);
   background-color: var(--background-color1);
   border: none;
-  color: white;
+  color: var(--primary-color);
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
@@ -67,7 +67,7 @@
 #modal-container button {
   background: var(--background-color1);
   border: none;
-  color: white;
+  color: var(--primary-color);
   font-size: 22px;
   height: auto;
   text-align: center;

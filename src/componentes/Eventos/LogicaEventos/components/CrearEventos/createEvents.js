@@ -3,6 +3,22 @@ import api from '../services/api.js'
 import { loadEvents } from '../../../../paginacion/PaginaEventos/eventos.js'
 import { Loading } from '../Loading/loading.js'
 
+const validateEventFields = ({ title, location, description }) => {
+  if (title.length < 3 || title.length > 16) {
+    return 'El título debe tener entre 3 y 16 caracteres.'
+  }
+
+  if (location.length > 14) {
+    return 'La ubicación no debe superar los 14 caracteres.'
+  }
+
+  if (description.length > 20) {
+    return 'La descripción no debe superar los 20 caracteres.'
+  }
+
+  return null
+}
+
 async function handleCreateEvent(e) {
   e.preventDefault()
 
@@ -12,31 +28,12 @@ async function handleCreateEvent(e) {
   const description = document.getElementById('description').value
   const image = document.getElementById('image').files[0]
 
-  if (title.length < 3 || title.length > 16) {
+  const validationError = validateEventFields({ title, location, description })
+  if (validationError) {
     await showAlert({
       icon: 'warning',
-      title: 'Título inválido',
-      text: 'El título debe tener entre 3 y 16 caracteres.',
-      confirmButtonText: 'Corregir'
-    })
-    return false
-  }
-
-  if (location.length > 14) {
-    await showAlert({
-      icon: 'warning',
-      title: 'Ubicación inválida',
-      text: 'La ubicación no debe superar los 14 caracteres.',
-      confirmButtonText: 'Corregir'
-    })
-    return false
-  }
-
-  if (description.length > 20) {
-    await showAlert({
-      icon: 'warning',
-      title: 'Descripción inválida',
-      text: 'La descripción no debe superar los 20 caracteres.',
+      title: 'Campos inválidos',
+      text: validationError,
       confirmButtonText: 'Corregir'
     })
     return false
@@ -67,12 +64,11 @@ async function handleCreateEvent(e) {
     loadEvents()
     return true
   } catch (error) {
-    console.error('Error al crear el evento:', error)
-
-    const message =
-      error.response && error.response.status === 400
-        ? error.response.data.message || 'Error al crear el evento.'
-        : 'La fecha no puede ser anterior ni igual a hoy. Inténtalo de nuevo.'
+    const message = error.message.includes(
+      'La fecha no puede ser anterior ni igual a hoy'
+    )
+      ? 'La fecha no puede ser anterior ni igual a hoy. Inténtalo de nuevo.'
+      : error.message
 
     await showAlert({
       icon: 'error',
@@ -80,7 +76,6 @@ async function handleCreateEvent(e) {
       text: message,
       confirmButtonText: 'Intentar de nuevo'
     })
-
     return false
   } finally {
     submitButton.disabled = false

@@ -24,7 +24,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: var(--primary-color);
   position: relative;
 }
 
@@ -58,7 +58,7 @@ body {
   display: inline-block;
   padding: 1rem 2rem;
   background-color: var(--background-color1);
-  color: white;
+  color: var(--primary-color);
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
@@ -66,7 +66,7 @@ body {
 }
 
 .cta-button:hover {
-  background-color: black;
+  background-color: var(--background-color2);
 }
 
 .home-main {
@@ -105,7 +105,7 @@ h2 {
 
 .event-card,
 .testimonial-card {
-  background-color: white;
+  background-color: var(--background-color3);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

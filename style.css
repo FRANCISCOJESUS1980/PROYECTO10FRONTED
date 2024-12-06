@@ -26,6 +26,22 @@
   -moz-osx-font-smoothing: grayscale;
   --background-color1: #3498db;
   --background-color2: black;
+  --background-color3: white;
+  --background-color4: #f0f2f5;
+  --background-color5: #2c3e50;
+  --background-color6: #f8f9fa;
+  --background-color7: gray;
+  --background-color8: whitesmoke;
+  --background-color9: #ffffff;
+  --background-color10: #288fd4;
+  --primary-color: white;
+  --secundary-color: #333;
+  --tercer-color: #2c3e50;
+  --cuarto-color: #7f8c8d;
+  --quinto-color: #2980b9;
+  --sexto-color: black;
+  --septimo-color: gray;
+  --octavo-color: #ff4d4d;
 }
 #app {
   justify-content: center;

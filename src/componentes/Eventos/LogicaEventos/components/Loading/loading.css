@@ -1,5 +1,5 @@
 .loading {
-  color: white;
+  color: var(--primary-color);
   font-size: 24px;
   background-color: rgba(0, 0, 0, 0.8);
   position: fixed;
@@ -23,7 +23,7 @@
 .dot {
   width: 20px;
   height: 20px;
-  background-color: white;
+  background-color: var(--background-color3);
   border-radius: 50%;
   margin: 0 10px;
   animation: pulse 1.5s ease-in-out infinite;
@@ -67,13 +67,13 @@
 }
 
 .error-message {
-  color: #ff4d4d;
+  color: var(--octavo-color);
   font-size: 18px;
   margin: 20px;
   padding: 10px 20px;
   background-color: rgba(255, 77, 77, 0.1);
   border-radius: 5px;
-  border: 1px solid #ff4d4d;
+  border: 1px solid var(--octavo-color);
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 

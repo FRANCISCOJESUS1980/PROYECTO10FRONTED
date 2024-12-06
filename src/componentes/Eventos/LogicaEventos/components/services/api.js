@@ -6,20 +6,29 @@ const isTokenExpired = (token) => {
   return payload.exp < now
 }
 
+const handleApiError = (error) => {
+  console.error('Error en la API:', error)
+  if (error.message.includes('Token inválido')) {
+    localStorage.removeItem('token')
+  }
+  throw error
+}
+
 const api = async (endpoint, method = 'GET', body = null, token = null) => {
   const headers = {}
 
   if (token) {
     if (isTokenExpired(token)) {
-      localStorage.removeItem('token')
-      throw new Error(
-        'Token inválido o ha expirado. Por favor, inicia sesión de nuevo.'
+      handleApiError(
+        new Error(
+          'Token inválido o ha expirado. Por favor, inicia sesión de nuevo.'
+        )
       )
     }
     headers['Authorization'] = `Bearer ${token}`
   }
 
-  let options = { method, headers }
+  const options = { method, headers }
 
   if (body) {
     if (body instanceof FormData) {
@@ -35,17 +44,14 @@ const api = async (endpoint, method = 'GET', body = null, token = null) => {
 
     if (!response.ok) {
       const errorData = await response.json()
-      throw new Error(errorData.message || response.statusText)
+      handleApiError(new Error(errorData.message || response.statusText))
     }
 
-    if (response.status === 204) {
-      return null
-    }
+    if (response.status === 204) return null
 
     return response.json()
   } catch (error) {
-    console.error('Error en la función fetch:', error)
-    throw error
+    handleApiError(error)
   }
 }
 

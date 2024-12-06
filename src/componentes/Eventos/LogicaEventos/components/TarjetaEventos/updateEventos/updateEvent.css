@@ -1,7 +1,7 @@
 #handleUpdateEvent {
-  background-color: gray;
+  background-color: var(--background-color7);
 }
 
 .modal-modificar {
-  background-color: gray;
+  background-color: var(--background-color7);
 }
