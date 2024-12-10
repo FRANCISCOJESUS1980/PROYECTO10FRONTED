@@ -3,11 +3,11 @@
 @import url('./src/componentes/paginacion/Home/home.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/Header/header.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/Loading/loading.css');
-@import url('./src/componentes/Eventos/LogicaEventos/components/Usuarios/UserMenu.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/Usuarios/UserMenu/UserMenu.css');
 @import url('./src/componentes/paginacion/PaginaEventos/eventos.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/TarjetaEventos/updateEventos/updateEvent.css');
-@import url('./src/componentes/Eventos/LogicaEventos/components/Loginform/loginform.css');
+@import url('./src/componentes/Eventos/LogicaEventos/components/Usuarios/Loginform/loginform.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/CrearEventos/modalcrearEventos/modalcrearEvents.css');
 @import url('./src/componentes/Eventos/LogicaEventos/components/TarjetaEventos/EventCard/EventCard.css');
 

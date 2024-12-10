@@ -1,5 +1,5 @@
-import api from '../services/api'
-import showAlert from '../AlertComponent/AlerComponet'
+import api from '../../services/api'
+import showAlert from '../../AlertComponent/AlerComponet'
 
 export function createUserMenu() {
   const appDiv = document.getElementById('app')

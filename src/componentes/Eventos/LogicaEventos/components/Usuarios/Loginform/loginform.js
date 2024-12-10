@@ -1,6 +1,6 @@
-import { openBaseModal, closeBaseModal } from '../Usuarios/BaseModal/BaseModal'
-import api from '../services/api'
-import showAlert from '../AlertComponent/AlerComponet'
+import { openBaseModal, closeBaseModal } from '../BaseModal/BaseModal'
+import api from '../../services/api'
+import showAlert from '../../AlertComponent/AlerComponet'
 
 const LoginForm = (onLogin) => {
   const form = document.createElement('form')

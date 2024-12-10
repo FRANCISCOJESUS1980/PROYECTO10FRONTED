@@ -4,7 +4,7 @@ import { Loading } from '../../Eventos/LogicaEventos/components/Loading/loading.
 import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet.js'
 import { EventCard } from '../../Eventos/LogicaEventos/components/TarjetaEventos/EventCard/EventCard.js'
 import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
-import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu.js'
+import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu/UserMenu.js'
 import { crearModal } from '../../paginacion/Modal/crearModal.js'
 
 const app = document.getElementById('app')

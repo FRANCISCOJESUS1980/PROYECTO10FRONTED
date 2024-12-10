@@ -1,9 +1,9 @@
 import { navigateTo } from '../router'
-import LoginForm from '../../Eventos/LogicaEventos/components/Loginform/loginform'
+import LoginForm from '../../Eventos/LogicaEventos/components/Usuarios/Loginform/loginform.js'
 import RegisterForm from '../../Eventos/LogicaEventos/components/Usuarios/RegisterForm'
 import { loadEvents, isAuthenticated } from '../PaginaEventos/eventos.js'
 import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
-import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu.js'
+import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu/UserMenu.js'
 import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet.js'
 
 export function crearModal() {
