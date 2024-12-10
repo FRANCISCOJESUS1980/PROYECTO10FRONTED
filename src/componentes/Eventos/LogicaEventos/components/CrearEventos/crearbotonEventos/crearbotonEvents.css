@@ -2,14 +2,14 @@
   background-color: var(--background-color1);
   border: none;
   color: var(--primary-color);
-  padding: 15px 32px;
+  padding: var(--rc-padding2);
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: var(--rc-border-radius2);
   transition: background-color 0.3s;
   margin-top: 160px;
   width: 84%;

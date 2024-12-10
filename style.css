@@ -24,6 +24,7 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
   --background-color1: #3498db;
   --background-color2: black;
   --background-color3: white;
@@ -34,6 +35,7 @@
   --background-color8: whitesmoke;
   --background-color9: #ffffff;
   --background-color10: #288fd4;
+
   --primary-color: white;
   --secundary-color: #333;
   --tercer-color: #2c3e50;
@@ -42,19 +44,47 @@
   --sexto-color: black;
   --septimo-color: gray;
   --octavo-color: #ff4d4d;
+  --noveno-color: #213547;
+  --decimo-color: #747bff;
+
+  --rc-border-radius1: 5px;
+  --rc-border-radius2: 4px;
+  --rc-border-radius3: 8px;
+  --rc-border-radius4: 10px;
+  --rc-border-radius5: 50%;
+  --rc-border-radius6: 10%;
+  --rc-border-radius7: 50px;
+
+  --rc-padding0: 0;
+  --rc-padding1: 0.6em 1.2em;
+  --rc-padding2: 15px 32px;
+  --rc-padding3: 1rem;
+  --rc-padding4: 0.5rem;
+  --rc-padding5: 0.75rem;
+  --rc-padding6: 10px 20px;
+  --rc-padding7: 10px;
+  --rc-padding8: 5px;
+  --rc-padding9: 6px;
+  --rc-padding10: 2rem;
+  --rc-padding11: 0.5rem 1rem;
+  --rc-padding12: 0.75rem 1.5rem;
+  --rc-padding13: 4rem 2rem;
+  --rc-padding14: 1.5rem;
+  --rc-padding15: 20px;
+  --rc-padding16: 15px 0;
 }
 #app {
   justify-content: center;
 }
 
 button {
-  border-radius: 5px;
+  border-radius: var(--rc-border-radius1);
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: var(--rc-padding1);
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -66,12 +96,12 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: var(--noveno-color);
     background-color: var(--background-color1);
   }
 
   a:hover {
-    color: #747bff;
+    color: var(--decimo-color);
   }
   button {
     background-color: var(--background-color1);

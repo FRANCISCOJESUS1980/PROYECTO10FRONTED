@@ -27,7 +27,7 @@
 #app {
   font-family: Arial, sans-serif;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--rc-padding10);
   text-align: center;
   display: flex;
   flex-wrap: wrap;

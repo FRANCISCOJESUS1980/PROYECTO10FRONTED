@@ -2,7 +2,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--rc-padding10);
   background-color: var(--background-color4);
   color: var(--secundary-color);
 }
@@ -10,7 +10,7 @@
 .contacto-header {
   background-color: var(--background-color5);
   color: var(--primary-color);
-  padding: 2rem;
+  padding: var(--rc-padding10);
   border-radius: 8px;
   margin-bottom: 2rem;
 }
@@ -48,8 +48,8 @@
 .contacto-header-nav a {
   color: var(--primary-color);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  padding: var(--rc-padding11);
+  border-radius: var(--rc-border-radius2);
   transition: background-color 0.3s ease;
 }
 
@@ -68,9 +68,9 @@
 .contacto-map-section,
 .contacto-faq-section {
   background-color: var(--background-color3);
-  border-radius: 8px;
+  border-radius: var(--rc-border-radius3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  padding: var(--rc-padding10);
 }
 
 .contacto-main h2 {
@@ -108,9 +108,9 @@
 .contacto-form-group input,
 .contacto-form-group textarea {
   width: 90%;
-  padding: 0.5rem;
+  padding: var(--rc-padding4);
   border: 1px solid #bdc3c7;
-  border-radius: 4px;
+  border-radius: var(--rc-border-radius2);
   font-size: 1rem;
   align-content: center;
 }
@@ -124,15 +124,16 @@
   height: 50px;
   resize: vertical;
   text-align: initial;
+  max-height: 200px;
 }
 
 .contacto-submit-btn {
   background-color: var(--background-color1);
   color: var(--primary-color);
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: var(--rc-padding12);
   font-size: 1rem;
-  border-radius: 4px;
+  border-radius: var(--rc-border-radius2);
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -162,8 +163,8 @@
 
 .contacto-faq-section details {
   background-color: var(--background-color6);
-  border-radius: 4px;
-  padding: 1rem;
+  border-radius: var(--rc-border-radius2);
+  padding: var(--rc-padding3);
 }
 
 .contacto-faq-section summary {
@@ -178,9 +179,9 @@
 .contacto-team-section {
   grid-column: 1 / -1;
   background-color: var(--background-color3);
-  border-radius: 8px;
+  border-radius: var(--rc-border-radius3);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  padding: var(--rc-padding10);
   margin-top: 2rem;
 }
 
@@ -197,7 +198,7 @@
 .contacto-member-image {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: var(--rc-border-radius5);
   object-fit: cover;
   margin-bottom: 1rem;
 }
@@ -246,7 +247,10 @@
   align-items: center;
   justify-content: center;
   background-color: var(--background-color4);
-  border-radius: 50%;
+  border-radius: var(--rc-border-radius5);
+}
+.contacto-social-link i:hover {
+  background-color: var(--background-color5);
 }
 
 @media (max-width: 768px) {

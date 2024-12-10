@@ -9,5 +9,5 @@
   align-items: center;
   justify-content: space-around;
   background-color: transparent;
-  padding: 0;
+  padding: var(--rc-padding0);
 }

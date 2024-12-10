@@ -1,7 +1,7 @@
 .event-card {
   width: 300px;
-  border-radius: 8px;
-  box-shadow: 1px 1px 4px 6px white;
+  border-radius: var(--rc-border-radius3);
+  box-shadow: 1px 1px 4px 6px var(--primary-color);
   overflow: hidden;
   margin: 16px;
   background-color: var(--background-color4);

@@ -4,7 +4,7 @@ html {
 
 body {
   margin: 0;
-  padding: 0;
+  padding: var(--rc-padding0);
   background-color: #f0f2f5;
   color: #333;
 }
@@ -56,11 +56,11 @@ body {
 
 .cta-button {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: var(--rc-padding3) var(--rc-padding10);
   background-color: var(--background-color1);
   color: var(--primary-color);
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: var(--rc-border-radius1);
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
@@ -70,7 +70,7 @@ body {
 }
 
 .home-main {
-  padding: 4rem 2rem;
+  padding: var(--rc-padding13);
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -106,7 +106,7 @@ h2 {
 .event-card,
 .testimonial-card {
   background-color: var(--background-color3);
-  border-radius: 8px;
+  border-radius: var(--rc-border-radius3);
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
@@ -124,7 +124,7 @@ h2 {
 
 .event-details,
 .testimonial-card {
-  padding: 1.5rem;
+  padding: var(--rc-padding14);
 }
 
 .event-details h3 {

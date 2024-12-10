@@ -24,7 +24,7 @@
   width: 20px;
   height: 20px;
   background-color: var(--background-color3);
-  border-radius: 50%;
+  border-radius: var(--rc-border-radius5);
   margin: 0 10px;
   animation: pulse 1.5s ease-in-out infinite;
 }
@@ -70,9 +70,9 @@
   color: var(--octavo-color);
   font-size: 18px;
   margin: 20px;
-  padding: 10px 20px;
+  padding: var(--rc-padding6);
   background-color: rgba(255, 77, 77, 0.1);
-  border-radius: 5px;
+  border-radius: var(--rc-border-radius1);
   border: 1px solid var(--octavo-color);
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }

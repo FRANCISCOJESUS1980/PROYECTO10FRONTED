@@ -25,21 +25,23 @@ export function crearModal() {
     { name: 'Próximos Eventos', path: '/eventos' }
   ]
 
-  const menuButtons = menuItems.map((item) => {
+  menuItems.forEach((item) => {
     const button = document.createElement('button')
     button.textContent = item.name
     button.addEventListener('click', () => {
       closeModal()
       navigateTo(item.path)
     })
-    return button
+    modalContainer.appendChild(button)
   })
 
-  menuButtons.forEach((button) => modalContainer.appendChild(button))
-
   const loginButton = document.createElement('button')
-  loginButton.textContent = 'Login'
-  loginButton.addEventListener('click', openLoginModal)
+  loginButton.textContent = 'Iniciar Sesión'
+  loginButton.id = 'login-button'
+  loginButton.addEventListener('click', () => {
+    closeModal()
+    openLoginModal()
+  })
   modalContainer.appendChild(loginButton)
 
   modalWrapper.appendChild(modalContainer)
@@ -56,19 +58,11 @@ export function crearModal() {
   }
 
   toggleButton.addEventListener('click', openModal)
-  modalWrapper.addEventListener('click', (event) => {
-    if (event.target === modalWrapper) {
-      closeModal()
-    }
-  })
 
   document.addEventListener('click', (event) => {
-    if (
-      !modalContainer.contains(event.target) &&
-      event.target !== toggleButton
-    ) {
-      closeModal()
-    }
+    const isOutsideClick =
+      !modalContainer.contains(event.target) && event.target !== toggleButton
+    if (isOutsideClick) closeModal()
   })
 
   function updateUIAfterLogin(newToken) {
@@ -76,9 +70,7 @@ export function crearModal() {
     window.token = newToken
     localStorage.setItem('token', newToken)
 
-    const loginButton = document.querySelector(
-      '#modal-container button[textContent="Login"]'
-    )
+    const loginButton = document.getElementById('login-button')
     if (loginButton) loginButton.style.display = 'none'
 
     createUserMenu()
@@ -87,27 +79,45 @@ export function crearModal() {
     window.isAuthenticated = true
   }
 
+  function createModal(id, form, extraLinks = []) {
+    if (document.getElementById(id)) return
+
+    const modal = document.createElement('div')
+    modal.id = id
+    modal.classList.add('modal')
+
+    const closeButton = document.createElement('button')
+    closeButton.textContent = 'Cerrar'
+    closeButton.addEventListener('click', () => modal.remove())
+
+    modal.appendChild(form)
+    extraLinks.forEach((link) => modal.appendChild(link))
+    modal.appendChild(closeButton)
+    document.body.appendChild(modal)
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.remove()
+      }
+    })
+
+    return modal
+  }
+
   function openLoginModal() {
     if (isAuthenticated()) {
       showAlert({
         title: 'Ya has iniciado sesión',
-        text: 'Cierra sesion en el boton pequeño de arriba a la derecha en la pagina de proximos eventos para poder volver a iniciar',
+        text: 'Cierra sesión en el botón pequeño de arriba a la derecha en la página de próximos eventos para poder volver a iniciar',
         icon: 'info',
         confirmButtonText: 'Aceptar'
       })
       closeModal()
       return
     }
-    if (document.getElementById('loginModal')) return
-
-    closeModal()
-
-    const loginModal = document.createElement('div')
-    loginModal.id = 'loginModal'
-    loginModal.classList.add('modal')
 
     const onLogin = (newToken) => {
-      loginModal.remove()
+      document.getElementById('loginModal').remove()
       updateUIAfterLogin(newToken)
       showAlert({
         icon: 'success',
@@ -120,40 +130,23 @@ export function crearModal() {
 
     const form = LoginForm(onLogin)
 
-    const closeButton = document.createElement('button')
-    closeButton.textContent = 'Cerrar'
-    closeButton.addEventListener('click', () => loginModal.remove())
-
     const registerLink = document.createElement('a')
     registerLink.href = '#'
     registerLink.textContent = '¿No tienes cuenta? Regístrate'
     registerLink.addEventListener('click', (e) => {
       e.preventDefault()
-      loginModal.remove()
+      document.getElementById('loginModal').remove()
       openRegisterModal()
     })
 
-    loginModal.appendChild(form)
-    loginModal.appendChild(registerLink)
-    loginModal.appendChild(closeButton)
-    document.body.appendChild(loginModal)
-
-    loginModal.addEventListener('click', (event) => {
-      if (event.target === loginModal) {
-        loginModal.remove()
-      }
-    })
+    createModal('loginModal', form, [registerLink])
   }
 
   function openRegisterModal() {
     if (document.getElementById('registerModal')) return
 
-    const registerModal = document.createElement('div')
-    registerModal.id = 'registerModal'
-    registerModal.classList.add('modal')
-
     const onRegister = (newToken) => {
-      registerModal.remove()
+      document.getElementById('registerModal').remove()
       updateUIAfterLogin(newToken)
       showAlert({
         title: 'Registro exitoso',
@@ -165,28 +158,15 @@ export function crearModal() {
 
     const form = RegisterForm(onRegister)
 
-    const closeButton = document.createElement('button')
-    closeButton.textContent = 'Cerrar'
-    closeButton.addEventListener('click', () => registerModal.remove())
-
     const loginLink = document.createElement('a')
     loginLink.href = '#'
     loginLink.textContent = '¿Ya tienes cuenta? Inicia sesión'
     loginLink.addEventListener('click', (e) => {
       e.preventDefault()
-      registerModal.remove()
+      document.getElementById('registerModal').remove()
       openLoginModal()
     })
 
-    registerModal.appendChild(form)
-    registerModal.appendChild(loginLink)
-    registerModal.appendChild(closeButton)
-    document.body.appendChild(registerModal)
-
-    registerModal.addEventListener('click', (event) => {
-      if (event.target === registerModal) {
-        registerModal.remove()
-      }
-    })
+    createModal('registerModal', form, [loginLink])
   }
 }

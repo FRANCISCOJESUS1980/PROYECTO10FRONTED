@@ -1,8 +1,8 @@
 form {
   background-color: var(--background-color1);
   margin: 0;
-  padding: 0;
-  border-radius: 5px;
+  padding: var(--rc-padding0);
+  border-radius: var(--rc-border-radius1);
 }
 
 #loginModal,
@@ -15,7 +15,19 @@ form {
   text-align: center;
   background-color: var(--background-color1);
   z-index: 100;
-  border-radius: 10px;
+  border-radius: var(--rc-border-radius4);
+}
+#loginModal > form > button {
+  border-radius: var(--rc-border-radius7);
+}
+#loginModal > button {
+  border-radius: var(--rc-border-radius7);
+}
+#registerModal > form > button {
+  border-radius: var(--rc-border-radius7);
+}
+#registerModal > button {
+  border-radius: var(--rc-border-radius7);
 }
 
 #registerModal > a:hover,
@@ -23,20 +35,15 @@ form {
   color: var(--primary-color);
 }
 
-input {
-  caret-color: var(--quinto-color);
-}
-
 .inputs {
   text-align: left;
 }
 
-label,
 input,
 button {
   display: block;
-  width: 98%;
-  padding: 0;
+  width: 96%;
+  padding: var(--rc-padding0);
   margin: 5px;
   border: none;
   outline: none;
@@ -57,14 +64,15 @@ input::placeholder {
 
 input {
   background: var(--background-color8);
-  padding: 10px;
-  padding-left: 20px;
+  padding: var(--rc-padding7);
+
   height: 50px;
   font-size: 14px;
-  border-radius: 50px;
+  border-radius: var(--rc-border-radius7);
   box-shadow: inset 6px 6px 6px #cbced1,
     inset -6px -6px 6px var(--primary-color);
   margin-top: 10px;
+  caret-color: var(--quinto-color);
 }
 
 button:hover {
