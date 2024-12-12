@@ -1,5 +1,5 @@
 import api from '../../services/api.js'
-import { loadEvents } from '../../../../../paginacion/PaginaEventos/eventos.js'
+import { loadEvents } from '../../../../../paginacion/Eventoslogic/loadEvents.js'
 import { closeModal } from '../../Usuarios/Modal.js'
 import showAlert from '../../AlertComponent/AlerComponet.js'
 

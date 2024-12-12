@@ -1,11 +1,11 @@
 import { navigateTo } from '../router'
 import LoginForm from '../../Eventos/LogicaEventos/components/Usuarios/Loginform/loginform.js'
 import RegisterForm from '../../Eventos/LogicaEventos/components/Usuarios/RegisterForm'
-import { loadEvents, isAuthenticated } from '../PaginaEventos/eventos.js'
+import { isAuthenticated } from '../PaginaEventos/eventos.js'
 import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
 import { createUserMenu } from '../../Eventos/LogicaEventos/components/Usuarios/UserMenu/UserMenu.js'
 import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet.js'
-
+import { loadEvents } from '../Eventoslogic/loadEvents.js'
 export function crearModal() {
   const toggleButton = document.createElement('button')
   toggleButton.id = 'toggle-button'
