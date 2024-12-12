@@ -1,10 +1,11 @@
 import api from '../../Eventos/LogicaEventos/components/services/api.js'
 import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet.js'
 import { loadEvents } from './loadEvents.js'
-import { Loading } from '../../Eventos/LogicaEventos/components/Loading/loading.js'
+//import { Loading } from '../../Eventos/LogicaEventos/components/Loading/loading.js'
 import { isAuthenticated } from '../PaginaEventos/eventos.js'
+import { showLoading, hideLoading } from './showLoadingHideLoading.js'
 
-const showLoading = () => {
+/*const showLoading = () => {
   const loading = Loading()
   app.innerHTML = ''
   app.appendChild(loading)
@@ -15,7 +16,7 @@ const hideLoading = () => {
   if (loadingElement) {
     loadingElement.remove()
   }
-}
+}*/
 
 export const deleteEvent = async (eventId) => {
   showLoading()

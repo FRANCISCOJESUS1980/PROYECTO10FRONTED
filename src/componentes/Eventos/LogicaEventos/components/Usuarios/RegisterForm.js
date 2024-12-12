@@ -43,15 +43,27 @@ const RegisterForm = (onRegister) => {
     } catch (error) {
       console.error('Error en el registro:', error)
 
-      const errorMessage = error.message.includes('password')
-        ? 'La longitud de la contraseña debe tener al menos 8 caracteres.'
-        : error.message.includes('username')
-        ? 'El nombre de usuario debe tener al menos 3 caracteres.'
-        : error.message.includes('email')
-        ? 'El email debe ser válido.'
-        : error.message.includes('Usuario ya registrado')
-        ? 'El usuario ya existe. Por favor, intenta con otro correo o nombre de usuario.'
-        : 'Ocurrió un error inesperado.'
+      let errorMessage
+
+      switch (true) {
+        case error.message.includes('password'):
+          errorMessage =
+            'La longitud de la contraseña debe tener al menos 8 caracteres.'
+          break
+        case error.message.includes('username'):
+          errorMessage =
+            'El nombre de usuario debe tener al menos 3 caracteres.'
+          break
+        case error.message.includes('email'):
+          errorMessage = 'El email debe ser válido.'
+          break
+        case error.message.includes('Usuario ya registrado'):
+          errorMessage =
+            'El usuario ya existe. Por favor, intenta con otro correo o nombre de usuario.'
+          break
+        default:
+          errorMessage = 'Ocurrió un error inesperado.'
+      }
 
       showAlert({
         title: 'Error!',

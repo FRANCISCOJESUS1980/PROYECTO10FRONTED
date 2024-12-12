@@ -6,6 +6,79 @@ import employee4 from '/assets/imagenes/foto persona4.webp'
 import logoImage from '/assets/imagenes/foto15.jpg'
 import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet'
 
+const contactDetails = [
+  { icon: 'fas fa-phone', text: '+34 123 456 789' },
+  { icon: 'fas fa-envelope', text: 'info@ejemplo.com' },
+  {
+    icon: 'fas fa-map-marker-alt',
+    text: 'Calle Manuel de Falla, 123, 28001 Madrid'
+  }
+]
+
+const teamMembers = [
+  { name: 'Juan Pérez', role: 'Director General', photo: employee1 },
+  { name: 'María García', role: 'Gerente de Eventos', photo: employee2 },
+  { name: 'Frederic Kanoute', role: 'Tesorería y Contactos', photo: employee4 },
+  {
+    name: 'Carla Rodríguez',
+    role: 'Coordinadora de Logística',
+    photo: employee3
+  }
+]
+
+const faqItems = [
+  {
+    question: '¿Cuáles son sus horarios de atención?',
+    answer:
+      'Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00 horas.'
+  },
+  {
+    question: '¿Ofrecen servicios de catering?',
+    answer:
+      'Sí, ofrecemos servicios de catering para todo tipo de eventos. Contáctanos para más información.'
+  },
+  {
+    question: '¿Cuál es el proceso de reserva?',
+    answer:
+      'Para reservar, puedes contactarnos por teléfono o email. Requerimos un depósito del 50% para confirmar la fecha.'
+  }
+]
+
+const socialLinks = [
+  { url: 'https://www.facebook.com', icon: 'fab fa-facebook-f' },
+  { url: 'https://www.twitter.com', icon: 'fab fa-twitter' },
+  { url: 'https://www.linkedin.com', icon: 'fab fa-linkedin-in' },
+  { url: 'https://www.instagram.com', icon: 'fab fa-instagram' }
+]
+
+const createTeamMember = (member) => `
+  <div class="contacto-team-member">
+    <img src="${member.photo}" alt="Foto de ${member.name}" class="contacto-member-image">
+    <h3>${member.name}</h3>
+    <p>${member.role}</p>
+  </div>
+`
+
+const createContactDetail = (detail) => `
+  <div class="contacto-item">
+    <i class="${detail.icon}"></i>
+    <p>${detail.text}</p>
+  </div>
+`
+
+const createFAQItem = (faq) => `
+  <details>
+    <summary>${faq.question}</summary>
+    <p>${faq.answer}</p>
+  </details>
+`
+
+const createSocialLink = (link) => `
+  <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="contacto-social-link">
+    <i class="${link.icon}"></i>
+  </a>
+`
+
 export function renderContacto() {
   const app = document.getElementById('app')
 
@@ -37,18 +110,7 @@ export function renderContacto() {
         <section id="contacto-info" class="contacto-info-section">
           <h2>Información de Contacto</h2>
           <div class="contacto-details">
-            <div class="contacto-item">
-              <i class="fas fa-phone"></i>
-              <p>+34 123 456 789</p>
-            </div>
-            <div class="contacto-item">
-              <i class="fas fa-envelope"></i>
-              <p>info@ejemplo.com</p>
-            </div>
-            <div class="contacto-item">
-              <i class="fas fa-map-marker-alt"></i>
-              <p>Calle Manuel de Falla, 123, 28001 Madrid</p>
-            </div>
+            ${contactDetails.map(createContactDetail).join('')}
           </div>
         </section>
 
@@ -81,56 +143,24 @@ export function renderContacto() {
         <section id="contacto-faq" class="contacto-faq-section">
           <h2>Preguntas Frecuentes</h2>
           <div class="contacto-faq-list">
-            <details>
-              <summary>¿Cuáles son sus horarios de atención?</summary>
-              <p>Nuestro horario de atención es de lunes a viernes de 9:00 a 18:00 horas.</p>
-            </details>
-            <details>
-              <summary>¿Ofrecen servicios de catering?</summary>
-              <p>Sí, ofrecemos servicios de catering para todo tipo de eventos. Contáctanos para más información.</p>
-            </details>
-            <details>
-              <summary>¿Cuál es el proceso de reserva?</summary>
-              <p>Para reservar, puedes contactarnos por teléfono o email. Requerimos un depósito del 50% para confirmar la fecha.</p>
-            </details>
+            ${faqItems.map(createFAQItem).join('')}
           </div>
         </section>
 
         <section class="contacto-team-section">
           <h2>Nuestro Equipo</h2>
           <div class="contacto-team-grid">
-            <div class="contacto-team-member">
-              <img src="${employee1}" alt="Foto de Juan Pérez" class="contacto-member-image">
-              <h3>Juan Pérez</h3>
-              <p>Director General</p>
-            </div>
-            <div class="contacto-team-member">
-              <img src="${employee2}" alt="Foto de María García" class="contacto-member-image">
-              <h3>María García</h3>
-              <p>Gerente de Eventos</p>
-            </div>
-            <div class="contacto-team-member">
-              <img src="${employee4}" alt="Foto de Frederic Kanoute" class="contacto-member-image">
-              <h3>Frederic Kanoute</h3>
-              <p>Tesorería y Contactos</p>
-            </div>
-            <div class="contacto-team-member">
-              <img src="${employee3}" alt="Foto de Carla Rodríguez" class="contacto-member-image">
-              <h3>Carla Rodríguez</h3>
-              <p>Coordinadora de Logística</p>
-            </div>
+            ${teamMembers.map(createTeamMember).join('')}
           </div>
         </section>
+
       </main>
 
       <footer class="contacto-footer">
         <div class="contacto-social-media">
           <h3>Síguenos</h3>
           <div class="contacto-social-links">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" class="contacto-social-link"><i class="fab fa-instagram"></i></a>
+            ${socialLinks.map(createSocialLink).join('')}
           </div>
         </div>
         <p>&copy; 2023 Tu Empresa de Eventos. Todos los derechos reservados.</p>
@@ -146,8 +176,6 @@ export function renderContacto() {
     const name = document.getElementById('contacto-name').value
     const email = document.getElementById('contacto-email').value
     const message = document.getElementById('contacto-message').value
-
-    // Si quieres, aquí iría la lógica para enviar el mensaje
 
     showAlert({
       icon: 'success',

@@ -35,10 +35,19 @@ const LoginForm = (onLogin) => {
     } catch (error) {
       console.error('Error en el inicio de sesión:', error)
 
-      const errorMessage =
-        error.status === 401
-          ? 'Correo o contraseña incorrectos. Por favor, intenta de nuevo.'
-          : error.message || 'Error inesperado al iniciar sesión.'
+      let errorMessage
+
+      switch (true) {
+        case error.status === 401:
+          errorMessage =
+            'Correo o contraseña incorrectos. Por favor, intenta de nuevo.'
+          break
+        case Boolean(error.message):
+          errorMessage = error.message
+          break
+        default:
+          errorMessage = 'Error inesperado al iniciar sesión.'
+      }
 
       await showAlert({
         icon: 'error',
