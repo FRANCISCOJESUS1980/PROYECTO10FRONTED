@@ -9,7 +9,7 @@
 
 .menu-icon {
   font-size: 26px;
-  font-weight: bold;
+  font-weight: var(--rc-font-weight-m);
   cursor: pointer;
   user-select: none;
   background-color: var(--background-color1);
@@ -42,7 +42,7 @@
   display: block;
   width: 100%;
   padding: var(--rc-padding8);
-  margin: 10px 0px;
+  margin: var(--rc-margin-s) 0px;
   font-size: 15px;
   color: var(--sexto-color);
   background-color: var(--background-color1);
@@ -50,7 +50,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   height: 30px;
-  gap: 5px;
+  gap: var(--rc-gap-xs);
 }
 
 .dropdown-menu button:hover {

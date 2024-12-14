@@ -24,14 +24,14 @@
 .event-card.expanded .event-description,
 .event-card.expanded .event-date,
 .event-card.expanded .event-location {
-  font-size: 1.2rem;
+  font-size: var(--rc-font-size-s);
   margin: 8px 12px;
   color: var(--sexto-color);
   justify-content: center;
 }
 
 .event-buttons {
-  margin-bottom: 5px;
+  margin-bottom: var(--rc-margin-xs);
   align-self: center;
   width: 90%;
 }
@@ -61,7 +61,7 @@
 .event-description,
 .event-date,
 .event-location {
-  font-size: 1.2rem;
+  font-size: var(--rc-font-size-s);
   margin: 8px 12px;
   color: var(--sexto-color);
   justify-content: center;

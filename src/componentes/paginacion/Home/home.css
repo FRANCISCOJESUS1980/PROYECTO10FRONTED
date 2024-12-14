@@ -50,7 +50,7 @@ body {
 }
 
 .home-header p {
-  font-size: 1.5rem;
+  font-size: var(--rc-font-size-l);
   margin-bottom: 2rem;
 }
 
@@ -61,7 +61,7 @@ body {
   color: var(--primary-color);
   text-decoration: none;
   border-radius: var(--rc-border-radius1);
-  font-weight: bold;
+  font-weight: var(--rc-font-weight-m);
   transition: background-color 0.3s ease;
 }
 
@@ -82,14 +82,14 @@ body {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: var(--rc-font-size-m);
   color: #2c3e50;
   margin-bottom: 2rem;
   text-align: center;
 }
 
 .about-section p {
-  font-size: 1.2rem;
+  font-size: var(--rc-font-size-s);
   line-height: 1.6;
   text-align: center;
   max-width: 800px;
@@ -100,7 +100,7 @@ h2 {
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: var(--rc-gap-l);
 }
 
 .event-card,
@@ -137,7 +137,7 @@ h2 {
   margin-top: 1rem;
   color: var(--background-color1);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: var(--rc-font-weight-m);
   scroll-behavior: smooth;
 }
 
@@ -147,17 +147,17 @@ h2 {
 }
 
 .testimonial-author {
-  font-weight: bold;
+  font-weight: var(--rc-font-weight-m);
   text-align: right;
 }
 @media (max-width: 768px) {
   .home-header h1 {
-    font-size: 3rem;
+    font-size: var(--rc-font-size-xl);
   }
   .event-grid {
     justify-self: center;
   }
   .home-header p {
-    font-size: 1.2rem;
+    font-size: var(--rc-font-size-s);
   }
 }

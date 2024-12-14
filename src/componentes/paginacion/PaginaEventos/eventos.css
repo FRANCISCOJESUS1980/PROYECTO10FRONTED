@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 80px;
+  margin-top: var(--rc-margin-xl);
   min-height: 100px;
 }
 .header-image {
@@ -18,8 +18,8 @@
 .header-title {
   font-size: 4.8rem;
   color: var(--background-color1);
-  font-weight: bold;
-  margin: 0 20px;
+  font-weight: var(--rc-font-weight-m);
+  margin: 0 var(--rc-margin-s);
   z-index: 1;
   flex-grow: 1;
 }

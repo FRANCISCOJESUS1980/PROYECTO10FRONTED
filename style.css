@@ -72,6 +72,27 @@
   --rc-padding14: 1.5rem;
   --rc-padding15: 20px;
   --rc-padding16: 15px 0;
+  /* santi o manu como ya lo tenia hecho asi esta parte la dejo, aunque se que la tengo que hacer como lo haré a partir de aquí*/
+  --rc-margin-xs: 5px;
+  --rc-margin-s: 10px;
+  --rc-margin-m: 20px;
+  --rc-margin-l: 40px;
+  --rc-margin-xl: 80px;
+
+  --rc-font-size-xs: 1rem;
+  --rc-font-size-s: 1.2rem;
+  --rc-font-size-l: 1.5rem;
+  --rc-font-size-m: 2.5rem;
+  --rc-font-size-xl: 3rem;
+
+  --rc-gap-xs: 5px;
+  --rc-gap-s: 1rem;
+  --rc-gap-l: 2rem;
+  --rc-gap-m: 40px;
+
+  --rc-font-weight-s: 400;
+  --rc-font-weight-l: 500;
+  --rc-font-weight-m: bold;
 }
 #app {
   justify-content: center;
@@ -82,7 +103,7 @@ button {
   border: 1px solid transparent;
   padding: var(--rc-padding1);
   font-size: 1em;
-  font-weight: 500;
+  font-weight: var(--rc-font-weight-l);
   font-family: inherit;
 
   cursor: pointer;
