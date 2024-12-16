@@ -1,6 +1,5 @@
 import api from '../../Eventos/LogicaEventos/components/services/api.js'
 import Header from '../../Eventos/LogicaEventos/components/Header/header.js'
-//import { Loading } from '../../Eventos/LogicaEventos/components/Loading/loading.js'
 import showAlert from '../../Eventos/LogicaEventos/components/AlertComponent/AlerComponet.js'
 import { EventCard } from '../../Eventos/LogicaEventos/components/TarjetaEventos/EventCard/EventCard.js'
 import { addCreateEventButton } from '../../Eventos/LogicaEventos/components/CrearEventos/crearbotonEventos/crearbotonEvents.js'
@@ -17,19 +16,6 @@ import { deleteEvent } from './deleteEvent.js'
 import { showLoading, hideLoading } from './showLoadingHideLoading.js'
 
 const app = document.getElementById('app')
-
-/*const showLoading = () => {
-  const loading = Loading()
-  app.innerHTML = ''
-  app.appendChild(loading)
-}
-
-const hideLoading = () => {
-  const loadingElement = document.querySelector('.loading')
-  if (loadingElement) {
-    loadingElement.remove()
-  }
-}*/
 
 export const loadEvents = async () => {
   showLoading()
