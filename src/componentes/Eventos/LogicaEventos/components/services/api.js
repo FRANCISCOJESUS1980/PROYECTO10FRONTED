@@ -1,4 +1,4 @@
-const API_URL = 'https://vercel.com/francisco-jesus-projects/proyecto-10/api'
+const API_URL = 'https://proyecto-10.vercel.app/api'
 
 const isTokenExpired = (token) => {
   const payload = JSON.parse(atob(token.split('.')[1]))
